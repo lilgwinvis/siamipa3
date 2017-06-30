@@ -1,0 +1,77 @@
+<?php
+
+ require_once 'shared.php';
+ $nim = isset($_POST['nim']) ? $_POST['nim'] : ''; 
+ $idx = isset($_POST['idx']) ? $_POST['idx'] : '';
+ $data['sem']= isset($_POST['sem']) ? $_POST['sem'] : '';
+ $data['kls']= isset($_POST['kls']) ? $_POST['kls'] : '';
+ $data['kdkmk']= isset($_POST['kdkmk']) ? $_POST['kdkmk'] : '';
+ $data['nakmk']= isset($_POST['nakmk']) ? $_POST['nakmk'] : '';
+ $data['kdds']= isset($_POST['kdds']) ? $_POST['kdds'] : '';
+ $data['nads']= isset($_POST['nads']) ? $_POST['nads'] :'';
+ $thnsms= isset($_POST['thnsms']) ? $_POST['thnsms'] :'';
+ 
+ switch($idx){
+  case 1 : $vvwtrans=new vwtrans;
+           echo $vvwtrans->ctk_excel($nim); 
+		   break; 
+  case 2 : $vwkrs=new vw_krs;
+           echo $vwkrs->ctk_kartu($nim,1); 
+		   break; 
+  case 3 : $vwkrs=new vw_krs;
+           echo $vwkrs->ctk_kartu($nim,2); 
+		   break; 
+  case 4 : $vwsebaran=new vwsebaran;
+           echo $vwsebaran->ctk_BAP($data); 
+		   break; 
+  case 5 : $vwsebaran=new vwsebaran;
+           echo $vwsebaran->ctk_CBAP($data); 
+		   break; 
+  case 6 : $vwsebaran=new vwsebaran;
+           echo $vwsebaran->ctk_DHMD($data); 
+		   break;
+  case 7 : $vwsebaran=new vwsebaran;
+           echo $vwsebaran->ctk_Abs_Ujian($data,1); 
+		   break;  
+  case 8 : $vwsebaran=new vwsebaran;
+           echo $vwsebaran->ctk_Abs_Ujian($data,2); 
+		   break;
+  case 9 : $vwsebaran=new vwsebaran;
+           echo $vwsebaran->ctk_DPNA($data); 
+		   break;
+  case 10 : $vwsebaran=new vwsebaran;
+            echo $vwsebaran->ctk_BAU($data); 
+			break;
+  case 11 : $vwsebaran=new vwsebaran;
+            echo $vwsebaran->ctk_label($data); 
+			break;
+  case 12 : $vwjdwlklh=new vwjdwlklh;
+            echo $vwjdwlklh->ctk_honor(); 
+			break;
+  case 13 : $vwjdwlklh=new vwjdwlklh;
+            echo $vwjdwlklh->ctk_pakasi(); 
+			break;
+  case 14 : $vwtrkeumhs=new vwtrkeumhs;
+            echo $vwtrkeumhs->ctk_trkeumhs($nim); 
+			break; 
+  //case 15 : echo $vwtrkeumhs->ctk_trkeumhs($nim,1); break; 
+  case 16 : $vwkrs=new vw_krs;
+            echo $vwkrs->ctk_krs_toexcel($nim); break;
+  case 17 : $vwjdwlklh=new vwjdwlklh;
+            echo $vwjdwlklh->ctk_jdwl_toexcel();break; 
+  case 18 : $vw_stat_mhs = new vw_stat_mhs;
+            echo $vw_stat_mhs->ctk_excel($data['sem']);
+			break;
+  case 19 : $vwriwayatkrs=new vw_riwayat_krs;
+            echo $vwriwayatkrs->ctk_krs_toexcel($nim,$thnsms); 
+			break;
+  case 20 : $vwjdwlklh=new vwjdwlklh;
+            echo $vwjdwlklh->ctk_honor2(); break;
+  case 21 : $vwriwayat=new vwriwayat;
+            echo $vwriwayat->ctk_DHMD($data,$thnsms); 
+			break;
+  case 22 : $vwriwayat=new vwriwayat;
+            echo $vwriwayat->ctk_DPNA($data,$thnsms); 
+			break;  
+ }
+?>

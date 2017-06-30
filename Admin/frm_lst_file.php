@@ -1,0 +1,148 @@
+<?php require_once 'shared.php'; 
+     
+     
+	$islog = isset($_SESSION['islog']) ? $_SESSION['islog'] : 0;
+	
+	if($islog==0)
+	{
+		header("Location: ../global_code/frm_login.php?idx=1");
+		exit();
+	}
+	else
+	{	 
+		$login = new login;
+		
+		
+		if($login->logintime()){		  
+			header("Location: ../global_code/frm_login.php?idx=1&isout=1");
+			exit();	
+		}else{ 
+			
+			
+			if(isset($_GET['hapus']))
+			{
+				unlink($_GET['hapus']);
+			}
+			
+			if(isset($_POST['lst']))
+			{
+				foreach($_POST['lst'] as $file){	
+					unlink($file);
+				}	
+			}
+			
+			$frm = new HTML_Form();
+			$html_element = new html_element;
+			
+			function getDirContents($dir, &$results = array()){
+				$files = scandir($dir);
+
+				foreach($files as $key => $value){
+					$path = $dir.DIRECTORY_SEPARATOR.$value;
+					if(!is_dir($path)) {
+						$results[] = $path;
+						//echo $path;
+					} else if($value != "." && $value != "..") {
+						getDirContents($path, $results);
+						//$results[] = $path;
+						//echo $path;
+					}
+				}
+
+				return $results;
+			}
+			
+			$files=getDirContents('cetak');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ganti Password</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" href="../css/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+	<style type="text/css">
+	 @import "../datatables/media/css/demo_page.css";
+	 @import "../datatables/media/css/demo_table.css";
+	.ui-widget { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 9px; }
+	</style>
+	<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../js/jquery-ui-1.8.23.custom.min.js"></script>
+	<script type="text/javascript" src="../datatables/media/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="../js/siamipa.js"></script>
+	<script type="text/javascript">
+
+	
+
+	$(document).ready(function () {
+		// Dialog
+				$('#dialog').dialog({
+					autoOpen: true,
+					width: 600,
+					open: function(){
+							$('#pgload').html("");
+							var vmydatatable = new mydatatable;
+							vmydatatable.id = 'lstfile';
+							vmydatatable.template = 0;
+							vmydatatable.title = 0;
+							vmydatatable.bPaginate = true;
+							vmydatatable.bInfo = true;
+							vmydatatable.bFilter = true;
+							vmydatatable.settemplate();				
+							vmydatatable.create();
+						  },
+					buttons: {
+						"Ok": function() {
+							$(this).dialog("close");
+						}
+					}
+				});
+
+ 	});
+
+	</script>
+	
+  <style type="text/css">
+     
+  </style>
+</head>
+
+<body>
+   <div id='pgload'><font size='1' color='red'>Mengontak Server ....</font> <img src='../img/ajax-loader.gif' /></div>
+   <!-- ui-dialog -->
+		<div id="dialog" title="List File">
+			<?php 
+			  
+			   
+			  $aksi=$html_element->addfieldset('Aksi',$frm->addInput('submit',"Delete","Delete Selected File",array('id'=>'Delete')));
+			  
+			  $tbstat = array("id" => "lstfile",'width'=>'100%');	
+		      $header = array(array('No','Check','Nama File','Folder','Aksi'));
+			  $isi_data = array();		  
+			  
+			  $i=1;
+			  foreach($files as $file)
+			  {
+				$tmp=array();
+				$tmp[]=array($i++,array());
+				$tmp[]=array($frm->addInput('checkbox',"lst[]",$file),array());
+				$tmp[]=array(basename($file),array());
+				$tmp[]=array(dirname($file),array());
+				$link='';
+				$tmp[]=array('<a href="'.$file.'" download>Download</a><br><a href="frm_lst_file.php?hapus='.$file.'">Delete</a>',array());				
+				//echo $file.'<br>';
+                $isi_data[]=$tmp; 				
+			  }
+			  $tbl = new mytable($tbstat,$header,$isi_data,'');
+			  
+			  $lst_file=$html_element->addfieldset('List File',$tbl->display());
+			  echo  $frm->startForm('#','post','frmlstfile').$aksi.$lst_file.$frm->endForm();
+			  
+			?>
+		</div>
+   
+</body>
+
+</html>
+<?php }} ?>

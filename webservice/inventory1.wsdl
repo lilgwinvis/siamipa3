@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<definitions name='Inventory1'
+  targetNamespace='urn:JimmyzInventory'
+  xmlns:tns='urn:JimmyzInventory'
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+  xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+
+<message name='getKRSResponse'>
+  <part name='Result' type='xsd:string'/>
+</message>
+
+<portType name='Inventory1PortType'>
+  <operation name='getKRS'>    
+    <output message='tns:getKRSResponse'/>
+  </operation>
+</portType>
+
+<binding name='Inventory1Binding' type='tns:Inventory1PortType'>
+  <soap:binding style='rpc'
+    transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='getKRS'>
+    <soap:operation soapAction='urn:xmethods-delayed-quotes#getKRS'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </output>
+  </operation>
+</binding>
+
+<service name='Inventory1Service'>
+  <port name='Inventory1Port' binding='Inventory1Binding'>
+    <soap:address location='http://sia.fmipa-unibba.org/webservice/service1.php'/>
+  </port>
+</service>
+</definitions>

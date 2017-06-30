@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<definitions name='Inventory2'
+  targetNamespace='urn:JimmyzInventory'
+  xmlns:tns='urn:JimmyzInventory'
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+  xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+
+<message name='getJadwalResponse'>
+  <part name='Result' type='xsd:string'/>
+</message>
+<message name='getPrintResponse'>
+  <part name='Result' type='xsd:string'/>
+</message>
+<portType name='Inventory2PortType'>
+  <operation name='getJadwal'>    
+    <output message='tns:getJadwalResponse'/>
+  </operation>
+  <operation name='printJadwal'>    
+    <output message='tns:getPrintResponse'/>
+  </operation>
+</portType>
+
+<binding name='Inventory2Binding' type='tns:Inventory2PortType'>
+  <soap:binding style='rpc'
+    transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='getJadwal'>
+    <soap:operation soapAction='urn:xmethods-delayed-quotes#getJadwal'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </output>
+  </operation>
+  <operation name='printJadwal'>
+    <soap:operation soapAction='urn:xmethods-delayed-quotes#printJadwal'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </output>
+  </operation>
+</binding>
+
+<service name='Inventory2Service'>
+  <port name='Inventory2Port' binding='Inventory2Binding'>
+    <soap:address location='http://sia.fmipa-unibba.org/webservice/service2.php'/>
+  </port>
+</service>
+</definitions>

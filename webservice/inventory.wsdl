@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<definitions name='Inventory'
+  targetNamespace='urn:JimmyzInventory'
+  xmlns:tns='urn:JimmyzInventory'
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+  xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+
+<message name='getNMtkResponse'>
+  <part name='Result' type='xsd:string'/>
+</message>
+
+<portType name='InventoryPortType'>
+  <operation name='getNMtk'>    
+    <output message='tns:getNMtkResponse'/>
+  </operation>
+</portType>
+
+<binding name='InventoryBinding' type='tns:InventoryPortType'>
+  <soap:binding style='rpc'
+    transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='getNMtk'>
+    <soap:operation soapAction='urn:xmethods-delayed-quotes#getNMtk'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:xmethods-delayed-quotes'
+        encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+    </output>
+  </operation>
+</binding>
+
+<service name='InventoryService'>
+  <port name='InventoryPort' binding='InventoryBinding'>
+    <soap:address location='http://sia.fmipa-unibba.org/webservice/service.php'/>
+  </port>
+</service>
+</definitions>
