@@ -24,7 +24,8 @@ class vw_ctkhnr extends vw_excel_basic
    {
      parent::__construct();
 	 
-	 $this->col_width_=array("A"=>3.00,"B"=>13.43,"C"=>4.29,"D"=>7.43,"E"=>15.86,"F"=>6.71,"G"=>1.86,"I"=>1.71,"J"=>6.86,"K"=>6.71,"L"=>6.86,"M"=>6.71,"N"=>6.86,"O"=>6.71,"P"=>6.86,"Q"=>6.71,"R"=>6.86,"S"=>14.71);
+	 //$this->col_width_=array("A"=>3.00,"B"=>13.43,"C"=>4.29,"D"=>7.43,"E"=>15.86,"F"=>6.71,"G"=>1.86,"I"=>1.71,"J"=>6.86,"K"=>6.71,"L"=>6.86,"M"=>6.71,"N"=>6.86,"O"=>6.71,"P"=>6.86,"Q"=>6.71,"R"=>6.86,"S"=>14.71);
+	 $this->col_width_=array("A"=>3.00,"B"=>13.43,"C"=>4.29,"D"=>7.43,"E"=>15.86,"F"=>6.71,"G"=>7.43,"H"=>7.43,"I"=>15.86,"J"=>15.86,"K"=>15.86);
 	 
 	 $tmp_font = $this->build_font(true,'Arial Narrow',10);
 	 
@@ -51,7 +52,7 @@ class vw_ctkhnr extends vw_excel_basic
 	 $tmp_borders = $this->build_borders(PHPExcel_Style_Border::BORDER_MEDIUM,PHPExcel_Style_Border::BORDER_MEDIUM);
 	 $tmp_borders1 = $this->build_borders(PHPExcel_Style_Border::BORDER_THIN,PHPExcel_Style_Border::BORDER_MEDIUM);
 	 
-	 $this->jdlLB=array(array('add'=>'C','row'=>1,'txt'=>'No.Peng. Dana: .../S.Ad/FMIPA-UNIBBA/..../....','merge'=>true,'mawl'=>'C','makh'=>'K','mjml'=>0,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+	 /*$this->jdlLB=array(array('add'=>'C','row'=>1,'txt'=>'No.Peng. Dana: .../S.Ad/FMIPA-UNIBBA/..../....','merge'=>true,'mawl'=>'C','makh'=>'K','mjml'=>0,'font'=>$tmp_font1,'borders'=>$tmp_borders),
 	                   array('add'=>'M','row'=>1,'txt'=>'No.Mata Anggaran:','merge'=>true,'mawl'=>'M','makh'=>'P','mjml'=>0,'font'=>$tmp_font1,'borders'=>$tmp_borders),
 					   array('add'=>'R','row'=>1,'txt'=>'No.Bukti:','merge'=>true,'mawl'=>'R','makh'=>'S','mjml'=>0,'font'=>$tmp_font1,'borders'=>$tmp_borders),
 					   array('add'=>'A3','txt'=>'HONOR DAN TRANSPORT DOSEN LB PRODI MATEMATIKA','merge'=>true,'madd'=>'A3:S3','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4),
@@ -69,11 +70,41 @@ class vw_ctkhnr extends vw_excel_basic
 					   array('add'=>'H','row'=>10,'txt'=>'HONOR','merge'=>true,'mawl'=>'H','makh'=>'H','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
 					   array('add'=>'I','row'=>10,'txt'=>'','merge'=>true,'mawl'=>'I','makh'=>'I','mjml'=>1,),
 					   array('add'=>'J','row'=>10,'txt'=>'TRANS.','merge'=>true,'mawl'=>'J','makh'=>'J','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1)
-					   );
+					   );*/
 					   
+      $this->jdlLB=array(array('add'=>'A','row'=>1,'txt'=>'No.Peng. Dana','font'=>$tmp_font1),
+	                     array('add'=>'A','row'=>2,'txt'=>'No.Mata Anggaran','font'=>$tmp_font1),
+					     array('add'=>'A','row'=>3,'txt'=>'No.Bukti','font'=>$tmp_font1),
+					     array('add'=>'C','row'=>1,'txt'=>':','font'=>$tmp_font1),
+	                     array('add'=>'C','row'=>2,'txt'=>':','font'=>$tmp_font1),
+					     array('add'=>'C','row'=>3,'txt'=>':','font'=>$tmp_font1),
+					     array('add'=>'D','row'=>1,'txt'=>'.../S.Ad/FMIPA-UNIBBA/..../....','font'=>$tmp_font1),
+	                     array('add'=>'D','row'=>2,'txt'=>'...............................','font'=>$tmp_font1),
+					     array('add'=>'D','row'=>3,'txt'=>'...............................','font'=>$tmp_font1),
+					   
+					   array('add'=>'A5','txt'=>'HONOR DAN TRANSPORT DOSEN LB PRODI MATEMATIKA','merge'=>true,'madd'=>'A5:K5','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4),
+	                   array('add'=>'A6','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM (FMIPA)','merge'=>true,'madd'=>'A6:K6','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4),
+					   array('add'=>'A7','txt'=>'PERTEMUAN PERKULIAHAN PADA BULAN ... ...','merge'=>true,'madd'=>'A7:K7','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4),
+					   array('add'=>'A9','txt'=>'TAHUN AKADEMIK ...-...','merge'=>true,'madd'=>'A9:K9','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4),
+					   array('add'=>'A11','txt'=>'A. DOSEN LB PRODI MATEMATIKA','merge'=>true,'madd'=>'A11:K11','font'=>$tmp_font5),
+					   array('add'=>'A','row'=>12,'txt'=>'NO.','merge'=>true,'mawl'=>'A','makh'=>'A','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+	                   array('add'=>'B','row'=>12,'txt'=>'DOSEN/ASISTEN','merge'=>true,'mawl'=>'B','makh'=>'B','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'C','row'=>12,'txt'=>'SMT','merge'=>true,'mawl'=>'C','makh'=>'C','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'D','row'=>12,'txt'=>'KELAS','merge'=>true,'mawl'=>'D','makh'=>'D','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'E','row'=>12,'txt'=>'MATA KULIAH','merge'=>true,'mawl'=>'E','makh'=>'E','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'F','row'=>12,'txt'=>'SKS','merge'=>true,'mawl'=>'F','makh'=>'F','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),					  
+					   array('add'=>'G','row'=>12,'txt'=>'HONOR','merge'=>true,'mawl'=>'G','makh'=>'H','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'G','row'=>13,'txt'=>'NGAJAR','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),					   
+					   array('add'=>'H','row'=>13,'txt'=>'TRANS.','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'I','row'=>12,'txt'=>'JML. PERTEMUAN','merge'=>true,'mawl'=>'I','makh'=>'I','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'J','row'=>12,'txt'=>'TOTAL HONOR','merge'=>true,'mawl'=>'J','makh'=>'J','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'K','row'=>12,'txt'=>'TTD','merge'=>true,'mawl'=>'K','makh'=>'K','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
+					   );
+      
+
 	  $this->jdlDTY= $this->jdlLB;
-	  $this->jdlDTY[3]= array('add'=>'A3','txt'=>'HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A3:S3','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4);
-	  $this->jdlDTY[7]= array('add'=>'A9','txt'=>'B. HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A9:S9','font'=>$tmp_font5);
+	  $this->jdlDTY[3]= array('add'=>'A5','txt'=>'HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A5:K5','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4);
+	  $this->jdlDTY[7]= array('add'=>'A11','txt'=>'B. HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A11:K11','font'=>$tmp_font5);
 	 
 	 
 	  $this->jdl4per= array(array('add'=>'K','row'=>10,'txt'=>'Minggu ke ...','merge'=>true,'mawl'=>'K','makh'=>'L','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
@@ -98,7 +129,7 @@ class vw_ctkhnr extends vw_excel_basic
 	                          array('add'=>'N11','txt'=>'Paraf','font'=>$tmp_font2),
                               array('add'=>'O','row'=>10,'txt'=>'TOTAL HONOR','merge'=>true,'mawl'=>'O','makh'=>'O','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders));					   					   				   
 								
-      $this->tblformat = array(  array('txt'=>'','add'=>'A','row'=>0,'merge'=> true,'mawl'=>'A','makh'=>'A','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
+      /*$this->tblformat = array(  array('txt'=>'','add'=>'A','row'=>0,'merge'=> true,'mawl'=>'A','makh'=>'A','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
 	                             array('txt'=>'','add'=>'B','row'=>0,'merge'=> true,'mawl'=>'B','makh'=>'B','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font6,'warp'=>true,'borders'=>$tmp_borders),
 								 array('txt'=>'','add'=>'C','row'=>0,'merge'=> true,'mawl'=>'C','makh'=>'C','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
 								 array('txt'=>'','add'=>'D','row'=>0,'merge'=> true,'mawl'=>'D','makh'=>'D','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
@@ -109,6 +140,19 @@ class vw_ctkhnr extends vw_excel_basic
 								 array('txt'=>'+','add'=>'I','row'=>0,'merge'=> true,'mawl'=>'I','makh'=>'I','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6),
 								 array('txt'=>'','add'=>'J','row'=>0,'merge'=> true,'mawl'=>'J','makh'=>'J','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font6,'format'=>'#,##0'),
 								 array('txt'=>'','add'=>'S','row'=>0,'merge'=> true,'mawl'=>'S','makh'=>'S','mjml'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font7,'format'=>'#,##0','borders'=>$tmp_borders)	  
+	                           );*/
+
+       $this->tblformat = array(  array('txt'=>'','add'=>'A','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
+	                             array('txt'=>'','add'=>'B','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font6,'warp'=>true,'borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'C','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'D','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'E','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font6,'warp'=>true,'borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'F','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'wbrdawl'=>'F','wbrdakh'=>'J','wbrdjml'=>2,'wborders'=>$tmp_borders1),
+	                             array('txt'=>'','add'=>'G','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font6,'format'=>'#,##0','borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'H','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font6,'format'=>'#,##0','borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'I','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font6,'borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'J','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font7,'format'=>'#,##0','borders'=>$tmp_borders),
+								 array('txt'=>'','add'=>'K','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font6,'borders'=>$tmp_borders)	  
 	                           );
 	
       $this->tblformat4per=array(array('txt'=>'Ke:','add'=>'K','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font7,'wbrdawl'=>'K','wbrdakh'=>'L','wbrdjml'=>2,'wborders'=>$tmp_borders1),
@@ -141,7 +185,7 @@ class vw_ctkhnr extends vw_excel_basic
 	 
      						
 							
-     $this->footerLB1=array(   array('txt'=>'SUB TOTAL HONOR DAN TRANSPORT DOSEN LB FAK. MIPA BULAN ....','add'=>'A','row'=>0,'merge'=>true,'mawl'=>'A','makh'=>'R','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
+     /*$this->footerLB1=array(   array('txt'=>'SUB TOTAL HONOR DAN TRANSPORT DOSEN LB FAK. MIPA BULAN ....','add'=>'A','row'=>0,'merge'=>true,'mawl'=>'A','makh'=>'R','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
 	                          array('txt'=>'0','add'=>'S','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders),
 	                       );  
   	 $this->footerLB2=array(  array('txt'=>'TOTAL HONOR DAN TRANSPORT DOSEN LB FAK. MIPA BULAN ....','add'=>'A','row'=>0,'merge'=>true,'mawl'=>'A','makh'=>'R','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
@@ -153,7 +197,23 @@ class vw_ctkhnr extends vw_excel_basic
 							   array('txt'=>'0','add'=>'S','row'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders),
 							   array('txt'=>'TOTAL HONOR & TRANSPORT DOSEN FAK. MATEMATIKA & ILMU PENGETAHUAN ALAM (FMIPA) BULAN ...','add'=>'A','row'=>2,'merge'=>true,'mawl'=>'A','makh'=>'R','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
 							   array('txt'=>'0','add'=>'S','row'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders)
-							 ); 							 
+							 );*/
+
+	 $this->footerLB1=array(   array('txt'=>'SUB TOTAL HONOR DAN TRANSPORT DOSEN LB FAK. MIPA BULAN ....','add'=>'A','row'=>0,'merge'=>true,'mawl'=>'A','makh'=>'I','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
+	                          array('txt'=>'0','add'=>'J','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders),
+	                       );  
+  	 $this->footerLB2=array(  array('txt'=>'TOTAL HONOR DAN TRANSPORT DOSEN LB FAK. MIPA BULAN ....','add'=>'A','row'=>0,'merge'=>true,'mawl'=>'A','makh'=>'I','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
+	                          array('txt'=>'0','add'=>'J','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders)
+							 ); 
+     
+
+     $this->footerDTY=array(   array('txt'=>'SUB TOTAL HONOR DAN TRANSPORT DOSEN TETAP FAK. MIPA BULAN ....','add'=>'A','row'=>0,'merge'=>true,'mawl'=>'A','makh'=>'I','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
+	                           array('txt'=>'0','add'=>'J','row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders),
+							   array('txt'=>'TOTAL HONOR DAN TRANSPORT DOSEN TETAP FAK. MIPA BULAN ....','add'=>'A','row'=>1,'merge'=>true,'mawl'=>'A','makh'=>'I','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
+							   array('txt'=>'0','add'=>'J','row'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders),
+							   array('txt'=>'TOTAL HONOR & TRANSPORT DOSEN FAK. MATEMATIKA & ILMU PENGETAHUAN ALAM (FMIPA) BULAN ...','add'=>'A','row'=>2,'merge'=>true,'mawl'=>'A','makh'=>'I','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'borders'=>$tmp_borders),
+							   array('txt'=>'0','add'=>'J','row'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0','borders'=>$tmp_borders)
+							 );						  							 
 							 
 	 $this->pagefooter='&L&5Dicetak dari Sistem Informasi Akademik FMIPA UNIBBA pada tanggal : '.date("d-m-Y H:i:s").' &R&5dicetak ulang : &D &T';						 
      				 
@@ -172,18 +232,25 @@ class vw_ctkhnr extends vw_excel_basic
 						
 	  $hnr_ngajar = $islb ? $dthnrLB->getHonor($row['hnr'],$row['Hstat']) : $dthnrDTY->getHonor($row['hnr'],$row['Hstat']);
 			
-	  $this->tblformat[7]['txt']=$hnr_ngajar;		
+	  //$this->tblformat[7]['txt']=$hnr_ngajar;
+	  $this->tblformat[6]['txt']=$hnr_ngajar;		
 			
 	  $trans_ngajar = $islb ? $dthnrLB->getTrans($row['hnr'],$row['Hstat']) : $dthnrDTY->getTrans($row['hnr'],$row['Hstat']);				
 			
-	  $this->tblformat[9]['txt']=$trans_ngajar;
-		    
-	  $this->tblformat[10]['add']=  $is4per ? 'S' : 'O';
+	  //$this->tblformat[9]['txt']=$trans_ngajar;
+	  $this->tblformat[7]['txt']=$trans_ngajar;
+	
+      $this->tblformat[8]['txt']= $is4per ? 4 : 2;
+      $this->tblformat[9]['txt']= '=(I'.$awl.'*(F'.$awl.'*G'.$awl.'))+(I'.$awl.'*H'.$awl.')';
+
+	  /*$this->tblformat[10]['add']=  $is4per ? 'S' : 'O';
 	  $this->tblformat[10]['mawl']=  $is4per ? 'S' : 'O';
 	  $this->tblformat[10]['makh']=  $is4per ? 'S' : 'O';
-	  $this->tblformat[10]['txt']=  $is4per ? "=K".($awl+2).'+M'.($awl+2).'+O'.($awl+2).'+Q'.($awl+2) : "=K".($awl+2).'+M'.($awl+2);
+	  $this->tblformat[10]['txt']=  $is4per ? "=K".($awl+2).'+M'.($awl+2).'+O'.($awl+2).'+Q'.($awl+2) : "=K".($awl+2).'+M'.($awl+2);*/
+
+
 	  
-	  if($is4per){
+	  /*if($is4per){
 	    $this->tblformat4per[3]['txt']= "=F".$awl.'*H'.$awl."+J".$awl;
 		$this->tblformat4per[7]['txt']= "=F".$awl.'*H'.$awl."+J".$awl;
 		$this->tblformat4per[11]['txt']= "=F".$awl.'*H'.$awl."+J".$awl;
@@ -193,7 +260,7 @@ class vw_ctkhnr extends vw_excel_basic
 	    $this->tblformat2per[3]['txt']= "=F".$awl.'*H'.$awl."+J".$awl;
 		$this->tblformat2per[7]['txt']= "=F".$awl.'*H'.$awl."+J".$awl;
 	  
-	  }
+	  }*/
    
    }
    
@@ -206,11 +273,13 @@ class vw_ctkhnr extends vw_excel_basic
 	  $this->setColumnWidth($this->col_width_);
 	  
 	  $this->tulis_data($this->jdlLB);
-	  $this->tulis_data($this->jdl4per);
+	  //$this->tulis_data($this->jdl4per);
 	 
     if(!empty($dtLB))
         {
-		  $start_row=12;
+		  //$start_row=12;
+		  $start_row=14;
+
 		  $sub_start_row=$start_row;
 		  $i=0;
 		  
@@ -227,10 +296,12 @@ class vw_ctkhnr extends vw_excel_basic
 		  {
 		    
 			
-			  $awl = $start_row+($i*3)+$jml_break;			
-			  $akh = $awl+2;
+			  //$awl = $start_row+($i*3)+$jml_break;			
+			  $awl = $start_row+$i+$jml_break;			
+			  //$akh = $awl+2;
+			  $akh = $awl;
 		   		    
-					$idx_break = (($i>0) and (($i+1)<=9)) ? 8 : 9 ;  
+					$idx_break = (($i>0) and (($i+1)<=9)) ? 20 : 21 ;  
 					
 					if((($i+1) % $idx_break)==0)
 						{				     		 
@@ -250,6 +321,7 @@ class vw_ctkhnr extends vw_excel_basic
 			   if($jml_sm>0)
 			   {
 			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
 			   }
 			   
 			   $this->isi_data($awl,$row,true,true,$dthnrLB,$dthnrDTY,true,$i);
@@ -270,6 +342,7 @@ class vw_ctkhnr extends vw_excel_basic
 				  
 				  if($isbreak){
 				      $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+				      $this->mergeCells("K". $row_smawl.":K".$row_smakh);
 					  $row_smawl=$row_smakh+2;
 					  $jml_sm=0;
 				  }
@@ -283,12 +356,19 @@ class vw_ctkhnr extends vw_excel_basic
 			
 			
 			$this->tulis_data($this->tblformat,$awl);
-			$this->tulis_data($this->tblformat4per,$awl);
+			//$this->tulis_data($this->tblformat4per,$awl);
 			$i=$i+1;
 		  } 		  
-			$awl = $start_row+($i*3)+$jml_break;
-            $akh = $awl+2;
-			
+			//$awl = $start_row+($i*3)+$jml_break;
+            //$akh = $awl+2;
+			$awl = $start_row+$i+$jml_break;
+            $akh = $awl;
+
+            if($jml_sm>0)
+			   {
+			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
+			   }
             
 			$tmp_add='';
 			foreach($sub_total as $idx)
@@ -325,11 +405,13 @@ class vw_ctkhnr extends vw_excel_basic
 	 $this->setColumnWidth($this->col_width_);
 	  
 	  $this->tulis_data($this->jdlDTY);
-	  $this->tulis_data($this->jdl4per);
+	  //$this->tulis_data($this->jdl4per);
 	  
       if(!empty($dtDTY))
         {
-		  $start_row=12;
+		  //$start_row=12;
+		  $start_row=14;
+
 		  $i=0;
 		  
 		  $nm_sm="";
@@ -340,9 +422,10 @@ class vw_ctkhnr extends vw_excel_basic
 		  foreach($dtDTY as $row)
 		  {
 		    
-			$awl = $start_row+($i*3);
-			$akh = $start_row+($i*3)+2;
-		   
+			//$awl = $start_row+($i*3);
+			//$akh = $start_row+($i*3)+2;
+		    $awl = $start_row+$i;
+			$akh = $start_row+$i;
   		    
 			
 			if($nm_sm!=$row['nama'])
@@ -350,6 +433,7 @@ class vw_ctkhnr extends vw_excel_basic
 			   if($jml_sm>0)
 			   {
 			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
 			   }
 			   
 			   
@@ -365,11 +449,19 @@ class vw_ctkhnr extends vw_excel_basic
 				 } 
             			
 			$this->tulis_data($this->tblformat,$awl);
-			$this->tulis_data($this->tblformat4per,$awl);
+			//$this->tulis_data($this->tblformat4per,$awl);
 			$i=$i+1;
 		  } 		  
-			$awl = $start_row+($i*3);
-            $akh = $start_row+($i*3)+2;
+			//$awl = $start_row+($i*3);
+            //$akh = $start_row+($i*3)+2;
+		    $awl = $start_row+$i;
+            $akh = $start_row+$i;
+
+            if($jml_sm>0)
+			   {
+			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
+			   }
 			
 		    $this->footerDTY[1]['txt']="=sum(".$this->footerDTY[1]['add'].$start_row.":".$this->footerDTY[1]['add'].($awl-1).")";
 		    $this->footerDTY[3]['txt']="=sum(".$this->footerDTY[3]['add'].$start_row.":".$this->footerDTY[3]['add'].($awl-1).")";
