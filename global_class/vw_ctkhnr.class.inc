@@ -103,8 +103,8 @@ class vw_ctkhnr extends vw_excel_basic
       
 
 	  $this->jdlDTY= $this->jdlLB;
-	  $this->jdlDTY[3]= array('add'=>'A5','txt'=>'HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A5:K5','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4);
-	  $this->jdlDTY[7]= array('add'=>'A11','txt'=>'B. HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A11:K11','font'=>$tmp_font5);
+	  $this->jdlDTY[9]= array('add'=>'A5','txt'=>'HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A5:K5','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font4);
+	  $this->jdlDTY[13]= array('add'=>'A11','txt'=>'B. HONOR DAN TRANSPORT DOSEN TETAP UNIBBA','merge'=>true,'madd'=>'A11:K11','font'=>$tmp_font5);
 	 
 	 
 	  $this->jdl4per= array(array('add'=>'K','row'=>10,'txt'=>'Minggu ke ...','merge'=>true,'mawl'=>'K','makh'=>'L','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
