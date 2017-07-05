@@ -143,6 +143,51 @@ class dt_ta
 	
      return $temp_data;
    }
+
+   function getDataViewBimbingan1()
+   {      
+	 
+	 $dtvbimbingan = new tb_gen('vw_bimbingan');
+     $data =  $dtvbimbingan->getData('');     
+	 
+	 $dtvpembimbing = new tb_gen('vw_pembimbing');
+	 
+	 $temp_data=array();
+		 
+	 if(!empty($data))
+	 {
+	  
+	   foreach($data as $row)
+	   {
+           $pembimbing='';
+		   
+		   
+		     			  
+			 $data1 = $dtvpembimbing->getData('id = "'.$row['idbimbingan'].'"');
+			 if(!empty($data1))
+			 {
+			    $pembimbing='<ol>';
+			   foreach($data1 as $row1)
+			   {
+			     $pembimbing.='<li>'.$row1['Nama'].'</li>';
+			   }
+			   $pembimbing.='</ol>';
+			 }
+			   	
+		   	   
+		   
+		   $temp_data[] = array(array($row['nimhskrs'],array()),
+								array($row['nmmhsmsmhs'],array()),
+								array($row['temabimbingan'],array()),
+								array($pembimbing,array()));		
+	   }          
+	   
+	 }
+	
+     return $temp_data;
+   }
+
+
    function getDataViewHBimbingan()
    {
      	  

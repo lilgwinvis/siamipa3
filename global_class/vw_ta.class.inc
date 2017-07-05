@@ -551,6 +551,18 @@
 		
 		return $html_txt;
 	  }
+
+	   function view_bimbingan1()
+	  {
+	    $dt_ta = new dt_ta;
+		$data = $dt_ta->getDataViewBimbingan1();		
+		
+		$header = array(array('NIM','Nama','Tema','Pembimbing'));
+		$tbstat = array("id" => "tbbimbingan",'width'=>'100%');		
+		$tbl = new mytable($tbstat,$header,$data,"");
+		
+		return $tbl->display();		
+	  }
 	
 	  function view_sidang()
 	  {

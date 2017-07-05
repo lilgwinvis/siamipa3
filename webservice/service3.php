@@ -22,8 +22,8 @@ function getJudulSkripsi(){
 
 function getBimbingan(){
   set_time_limit(120);
- 
-  $tmp = 'Daftar Bimbingan';
+  $vw_ta = new vw_ta;
+  $tmp = $vw_ta->view_bimbingan1();
   return $tmp;
 }
 
