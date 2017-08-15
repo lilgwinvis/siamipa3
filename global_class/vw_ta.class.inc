@@ -109,7 +109,16 @@
         
 		
         $tbl->addCell($frm->addSelectList("Penguji3",$kddsn,true,null,null,array('id'=>'kddsn2')), null, 'data');   		 
-			         
+		
+
+        $tbl->addRow();
+		$tbl->addCell('Penguji 4', null, 'data'); 
+        $tbl->addCell(':', null, 'data');
+        
+		
+        $tbl->addCell($frm->addSelectList("Penguji4",$kddsn,true,null,null,array('id'=>'kddsn3')), null, 'data');
+
+
 		$tbl->addRow();
 		$tbl->addCell('NIDN Pembimbing 1', null, 'data'); 
         $tbl->addCell(':', null, 'data');
@@ -285,7 +294,16 @@
         $tbl->addCell(':', null, 'data');
         
 		
-        $tbl->addCell($frm->addSelectList("Penguji3",$kddsn,true,$pemb[3],null,array('id'=>'kddsn2')), null, 'data');   		 
+        $tbl->addCell($frm->addSelectList("Penguji3",$kddsn,true,$pemb[3],null,array('id'=>'kddsn2')), null, 'data');   
+
+
+        $tbl->addRow();
+		$tbl->addCell('Penguji 4', null, 'data'); 
+        $tbl->addCell(':', null, 'data');
+        
+		
+        $tbl->addCell($frm->addSelectList("Penguji4",$kddsn,true,$pemb[4],null,array('id'=>'kddsn3')), null, 'data'); 
+
 		
         $tbl->addRow();
 		$tbl->addCell('NIDN Pembimbing 1', null, 'data'); 

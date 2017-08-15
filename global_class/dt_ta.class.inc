@@ -622,7 +622,7 @@ class dt_ta
 	  return 0; 
 	}
 	
-    function editDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$NIDNPemb1,$NIDNPemb2)
+    function editDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$pengu4,$NIDNPemb1,$NIDNPemb2)
 	{
 	  $tb_sidang = new tb_gen('tbsidang');
 	  $today = date("Y-m-d H:i:s");
@@ -667,13 +667,17 @@ class dt_ta
 	    $data=array('id'=>$idsidang,'kddsn'=>$pengu3,'penugasan'=>3);
 	    $tb_penugasan->insertRecord($data);  
 	  }
+	  if($pengu4!=''){ 	  
+	    $data=array('id'=>$idsidang,'kddsn'=>$pengu4,'penugasan'=>4);
+	    $tb_penugasan->insertRecord($data);  
+	  }
 	
 	  return 0;
 	}
 		
 	
 	
-	function insertDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$NIDNPemb1,$NIDNPemb2)
+	function insertDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$pengu4,$NIDNPemb1,$NIDNPemb2)
 	{
 	  $tb_sidang = new tb_gen('tbsidang');
 	  $today = date("Y-m-d H:i:s");
@@ -719,6 +723,11 @@ class dt_ta
 	    $data=array('id'=>$idsidang,'kddsn'=>$pengu3,'penugasan'=>3);
 	    $tb_penugasan->insertRecord($data);  
 	  }
+	  if($pengu4!=''){ 	  
+	    $data=array('id'=>$idsidang,'kddsn'=>$pengu4,'penugasan'=>4);
+	    $tb_penugasan->insertRecord($data);  
+	  }
+
 	  return 0; 
 	}
 	

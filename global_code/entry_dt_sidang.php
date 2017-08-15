@@ -16,6 +16,7 @@ $nosk = isset($_POST['nosk']) ? $_POST['nosk']: "";
 $pengu1 = isset($_POST['Penguji1']) ? $_POST['Penguji1']: "";
 $pengu2 = isset($_POST['Penguji2']) ? $_POST['Penguji2']: "";
 $pengu3 = isset($_POST['Penguji3']) ? $_POST['Penguji3']: "";
+$pengu4 = isset($_POST['Penguji4']) ? $_POST['Penguji4']: "";
 $id = isset($_POST['id']) ? $_POST['id']: "";
 $pemb1 = isset($_POST['Pemb1']) ? $_POST['Pemb1']: "";
 $pemb2 = isset($_POST['Pemb2']) ? $_POST['Pemb2']: "";
@@ -26,14 +27,14 @@ switch($idx)
 
   case 1 : 
           $dt_ta = new dt_ta;
-		  $hsl = $dt_ta->insertDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$pemb1,$pemb2);
+		  $hsl = $dt_ta->insertDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$pengu4,$pemb1,$pemb2);
 		  echo "Data Sidang Berhasil Disimpan !!!";          
 		  break;
   case 2 : 
           
 		  echo $absing;
 		  $dt_ta = new dt_ta;
-		  $hsl = $dt_ta->editDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$pemb1,$pemb2);
+		  $hsl = $dt_ta->editDataSidang($idbimbingan,$thn,$nim,$judul,$absindo,$absing,$tglsid,$sesi,$tgllls,$tglsk,$nosk,$pengu1,$pengu2,$pengu3,$pengu4,$pemb1,$pemb2);
 		  echo "Data Sidang Berhasil Diedit !!!";
 		  
           break;
