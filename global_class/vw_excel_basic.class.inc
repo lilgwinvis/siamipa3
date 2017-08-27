@@ -91,13 +91,14 @@ class vw_excel_basic
     $this->objPHPExcel->getActiveSheet()->getStyle($add)->getNumberFormat()->setFormatCode($format);
    }
    
-   function setPageSetup($orientation,$papersize,$hcen,$vcen,$scale=100,$rowawl=0,$rowakh=0)
+   function setPageSetup($orientation,$papersize,$hcen,$vcen,$scale=100,$rowawl=0,$rowakh=0,$fitpage=false)
    {
       $this->objPHPExcel->getActiveSheet()->getPageSetup()->setOrientation($orientation);
       $this->objPHPExcel->getActiveSheet()->getPageSetup()->setPaperSize($papersize);
 	  $this->objPHPExcel->getActiveSheet()->getPageSetup()->setHorizontalCentered($hcen);
 	  $this->objPHPExcel->getActiveSheet()->getPageSetup()->setVerticalCentered($vcen);
 	  $this->objPHPExcel->getActiveSheet()->getPageSetup()->setScale($scale);
+	  $this->objPHPExcel->getActiveSheet()->getPageSetup()->setFitToPage($fitpage);
 	  
 	  if($rowawl!=0 and $rowakh !=0)
 	  {
@@ -345,6 +346,17 @@ class vw_excel_basic
    
    }
    
+   function insert_image($position,$x,$y,$width,$image)
+   {
+      $objDrawing = new PHPExcel_Worksheet_Drawing(); 
+	  $objDrawing->setPath($image);
+	  $objDrawing->setWidth($width);
+	  $objDrawing->setOffsetX($x);
+      $objDrawing->setOffsetY($y);
+	  $objDrawing->setWorksheet($this->objPHPExcel->getActiveSheet());
+	  $objDrawing->setCoordinates($position);
+			
+   }
    
   
 }
