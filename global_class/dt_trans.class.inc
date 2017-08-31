@@ -36,6 +36,8 @@ class dt_trans
 			}
 			return $ada;
 		});
+	   $this->sks_mbl = array_reduce(array_column($hsl,'sksmktbkmk'),function($a,$b){ return $a+$b;});
+
       }
       return $hsl;
    }
