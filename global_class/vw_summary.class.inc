@@ -627,15 +627,7 @@
 				     	  				 	
                  					 
 				}
-			 }	
-									 
-              			
-				 
-				  
-				
-				
-				
-			    
+			 }  
 				
 				return $tbl->display();				 
 	  
@@ -658,9 +650,11 @@
 				 $tbl->addCell("SKS yg Belum Di ambil", null, 'header'); 
 				 $tbl->addCell("Total SKS", null, 'header');
 				 
+				 $sks_konv = $this->vkhs->hitsks($nim,'00000');
+	             
 	             $tbl->addRow();
-	             $tbl->addCell($this->vkhs->hitsks($nim,'00000'), null, 'data');
-	             $tbl->addCell($this->vtrans->sks_mbl, null, 'data');
+	             $tbl->addCell($sks_konv, null, 'data');
+	             $tbl->addCell($this->vtrans->sks_mbl-$sks_konv, null, 'data');
 				 $tbl->addCell($this->vmtk_ctrl->sksnmbl($nim), null, 'data'); 
 				 $tbl->addCell($this->vmtk_ctrl->hittotsks(), null, 'data'); 
               

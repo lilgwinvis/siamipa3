@@ -63,8 +63,27 @@ class vw_publish_nilai
 	  }
 	  
 	  
-	  $header = array(array(array("Semester",array("rowspan"=>2)),array("Kode",array("rowspan"=>2)),array("Matakuliah",array("rowspan"=>2)),array("Kelas",array("rowspan"=>2)),array("Dosen",array("rowspan"=>2)),array("Jml. Mhs.",array("rowspan"=>2)),array("Jml. Nilai T",array("colspan"=>2)),array("Anomali",array("rowspan"=>2)),array("Aksi",array("rowspan"=>2))),array("TRNLM","TRNLM_TRNLP"));
-	  $accheader=array("Jumlah Nilai T TRNLM < Jumlah Nilai T TRNLM_TRNLP","Jumlah Nilai T TRNLM > Jumlah Nilai T TRNLM_TRNLP","Jumlah Nilai T TRNLM = Jumlah Nilai T TRNLM_TRNLP");  
+	  $header = array(
+	  	               array(
+	  	               	       array("Semester",array("rowspan"=>2)),
+	  	               	       array("Kode",array("rowspan"=>2)),
+	  	               	       array("Matakuliah",array("rowspan"=>2)),
+	  	               	       array("Kelas",array("rowspan"=>2)),
+	  	               	       array("Dosen",array("rowspan"=>2)),
+	  	               	       array("Jml. Mhs.",array("rowspan"=>2)),
+	  	               	       array("Jml. Nilai T",array("colspan"=>2)),
+	  	               	       array("Anomali",array("rowspan"=>2)),
+	  	               	       array("Aksi",array("rowspan"=>2))
+	  	               	    ),
+	  	               array("TRNLM","TRNLM_TRNLP")
+	  	             );
+
+	  $accheader=array(
+	  	               "Jumlah Nilai T TRNLM < Jumlah Nilai T TRNLM_TRNLP",
+	  	               "Jumlah Nilai T TRNLM > Jumlah Nilai T TRNLM_TRNLP",
+	  	               "Jumlah Nilai T TRNLM = Jumlah Nilai T TRNLM_TRNLP"
+	  	              );  
+	  
 	  $acccontent = array();
 	  
 	          $tbstat = array("id" => "tbl1",'width'=>'100%');
