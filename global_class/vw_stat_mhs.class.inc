@@ -104,14 +104,32 @@ class vw_stat_mhs
 	  
 	 
 	 $tbstat1 = array("id" => "lst_summary");
-	 $header1 = array(array('Angkatan', 'Kelas', 'Aktif','Cuti','DO','Keluar','Lulus', 'Non Aktif', 'Total'));
+	 $header1 = array(array(
+	 	                    array('Angkatan',array('rowspan'=>2)), 
+	 	                    array('Kelas',array('rowspan'=>2)), 
+	 	                    array('Aktif',array('colspan'=>2)),
+	 	                    array('Cuti',array('colspan'=>2)),
+	 	                    array('DO',array('colspan'=>2)),
+	 	                    array('Keluar',array('colspan'=>2)),
+	 	                    array('Lulus',array('colspan'=>2)),
+	 	                    array('Non Aktif',array('colspan'=>2)), 
+	 	                    array('Total',array('rowspan'=>2))
+	 	                    ),
+	 	              array('L','P','L','P','L','P','L','P','L','P','L','P'));
 	 $data_table1 = array();	 
 	 
 	 $data = $dt_stat_mhs->getAngkatan($txt_filter);
 	  
 	  if(!empty($data))
 	  {
-        $jmltot = array('1'=>0,'2'=>0,'3'=>0,'4'=>0,'5'=>0,'6'=>0,'T'=>0);
+        $jmltot = array('1'=>array('L'=>0,'P'=>0,'jml'=>0),
+        	            '2'=>array('L'=>0,'P'=>0,'jml'=>0),
+        	            '3'=>array('L'=>0,'P'=>0,'jml'=>0),
+        	            '4'=>array('L'=>0,'P'=>0,'jml'=>0),
+        	            '5'=>array('L'=>0,'P'=>0,'jml'=>0),
+        	            '6'=>array('L'=>0,'P'=>0,'jml'=>0),
+        	            'T'=>array('L'=>0,'P'=>0,'jml'=>0)
+        	            );
 		$kls = array('R','N');
 		foreach($data as $row)
 		{
@@ -124,8 +142,17 @@ class vw_stat_mhs
 			  $jml=$dt_stat_mhs->getjmlmhs_jmlstat($thnsms,$row['tahunmsmhs'],$kls1);      
 			  			  
 			  array_walk($jmltot,function(&$value,$key) use (&$temp_data,$jml){
-				  $temp_data[]=array($tmp=$jml[$key],array());
-			      $value+=$tmp;
+				  if($key!='T'){
+                    $temp_data[]=array($tmp=$jml[$key]['L'],array());
+                    $value['L']+=$tmp;  
+                    $temp_data[]=array($tmp=$jml[$key]['P'],array());
+                    $value['P']+=$tmp;
+                    $tmp=$jml[$key]['jml'];
+				  }else{
+   			        $temp_data[]=array($tmp=$jml[$key]['jml'],array());
+   			      }
+				  
+				  $value['jml']+=$tmp;
 			  });
 			  
 			  $data_table1[]=$temp_data;
@@ -135,9 +162,13 @@ class vw_stat_mhs
           $temp_data[]=array('Jumlah',array());
 		  $temp_data[]=array('',array());
 		  
-		  array_walk($jmltot,function($value,$key) use (&$temp_data){
-				  $temp_data[]=array($value,array());
-			      
+          array_walk($jmltot,function($value,$key) use (&$temp_data){
+				 if($key!='T'){
+                    $temp_data[]=array($value['L'],array());
+                    $temp_data[]=array($value['P'],array());                    
+				  }else{ 
+				   $temp_data[]=array($value['jml'],array());
+			      }
 			  });
 			  
           $data_table1[]=$temp_data;		  

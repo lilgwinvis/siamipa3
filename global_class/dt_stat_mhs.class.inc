@@ -257,7 +257,7 @@ class dt_stat_mhs
 			 {
 				 $tb = new tb_gen('stat_mhs');
 			 
-				 $tb->sql_select="thnsmsstat_mhs,tahunmsmhs,shiftmsmhs,count(statstat_mhs) as jml";
+				 $tb->sql_select="thnsmsstat_mhs,tahunmsmhs,shiftmsmhs,SUM(IF(kdjekmsmhs='L',1,0)) AS jmlL,SUM(IF(kdjekmsmhs='P',1,0)) AS jmlP,count(statstat_mhs) as jml";
 				 $tb->sql_from="stat_mhs INNER JOIN msmhs ON nimstat_mhs=nimhsmsmhs";
 				 $tb->sql_groupby="thnsmsstat_mhs,tahunmsmhs,shiftmsmhs";
 				 
@@ -266,9 +266,12 @@ class dt_stat_mhs
 				 
 				 $data = $tb->getData($txt_where);
 				 
-				 return (!empty($data)) ? $data[0]['jml'] : 0;
-				 
-				 
+				 if(!empty($data)){
+                   return array('L'=>$data[0]['jmlL'],'P'=>$data[0]['jmlP'],'jml'=>$data[0]['jml']);
+                 }else{
+				 	return array('L'=>0,'P'=>0,'jml'=>0);;
+				 }  
+
 			 }; 
 	 
 	 $jml = array();     
