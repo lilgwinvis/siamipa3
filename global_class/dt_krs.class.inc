@@ -297,11 +297,13 @@ class dt_krs
 		//	}
 		// }
 		if($baru==1){  
-			$where = "kdkmktbkmk NOT LIKE 'MATP%' and (kdkmktbkmk not in (select kdkmkkrs from krs where nimhskrs='$user') ) and (kdkmktbkmk not in (select distinct kdkmktrnlm from trnlm_trnlp where nimhstrnlm='$user') )";
+			$where = "kdkmktbkmk NOT LIKE 'MATP%' and (kdkmktbkmk not in (select kdkmkkrs from krs where nimhskrs='$user') ) and (kdkmktbkmk not in (select distinct kdkmktrnlm from trnlm_trnlp where nimhstrnlm='$user')) AND ( kdkmktbkmk NOT IN 
+                 (SELECT DISTINCT kdkmksyarat FROM syarat LEFT JOIN (SELECT DISTINCT kdkmktrnlm FROM trnlm_trnlp WHERE nimhstrnlm='$user') a ON
+                  syaratkmk = kdkmktrnlm WHERE kdkmktrnlm IS NULL ORDER BY kdkmksyarat))";
 			
 		}else
 		{
-			$where = "kdkmktbkmk NOT LIKE 'MATP%' and (kdkmktbkmk not in (select kdkmkkrs from krs where nimhskrs='$user') ) and (kdkmktbkmk in (select distinct kdkmktrnlm from trnlm_trnlp where nimhstrnlm='$user') ) ";
+			$where = "kdkmktbkmk NOT LIKE 'MATP%' and (kdkmktbkmk not in (select kdkmkkrs from krs where nimhskrs='$user') ) and (kdkmktbkmk in (select distinct kdkmktrnlm from trnlm_trnlp where nimhstrnlm='$user'))";
 			
 		}
 
@@ -315,16 +317,14 @@ class dt_krs
 				$ctk=0;
 				$tmp = $row['kdkmktbkmk'];
 				
-				$where = "kdkmksyarat='$tmp'"; 
-				$data1 = $this->vsyarat->getData($where);
-				$num_rows=$this->vsyarat->numrows;
+				//$where = "kdkmksyarat='$tmp'"; 
+				//$data1 = $this->vsyarat->getData($where);
+				//$num_rows=$this->vsyarat->numrows;
 				
 				if($tmp=="UBB106" or $tmp=="MAT352" or $tmp=="MAT353" or $tmp=="MAT370"){
 					
-					if($sks>=110){				 
-						
-						$ctk=1;
-						
+					if($sks>=110){					
+						$ctk=1;						
 					}else{
 						$ctk=0;
 					}
@@ -332,25 +332,25 @@ class dt_krs
 				}		 
 				else{
 					
-					if($num_rows==0){
-						$ctk=1;
-					}else{	
+					//if($num_rows==0){
+					//	$ctk=1;
+					//}else{	
 						
-						$where = "kdkmksyarat='$tmp' and (syaratkmk in (select distinct kdkmktrnlm from trnlm_trnlp where nimhstrnlm='$user' ))"; 
-						$data2 = $this->vsyarat->getData($where);
-						$num_rows1=$this->vsyarat->numrows;
-						if($num_rows1==0){
-							$ctk=0;
-						}
-						else{					     
+					//	$where = "kdkmksyarat='$tmp' and (syaratkmk in (select distinct kdkmktrnlm from trnlm_trnlp where nimhstrnlm='$user' ))"; 
+					//	$data2 = $this->vsyarat->getData($where);
+					//	$num_rows1=$this->vsyarat->numrows;
+					//	if($num_rows1==0){
+					//		$ctk=0;
+					//	}
+					//	else{					     
 							$ctk=1;						 
-						}
-						if($baru==0)
-						{
-							$ctk=1;
-						}				   
+					//	}
+						//if($baru==0)
+						//{
+						//	$ctk=1;
+						//}				   
 						
-					}
+					//}
 					
 				}
 				
