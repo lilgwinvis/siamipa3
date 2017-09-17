@@ -156,12 +156,10 @@
          $tmpdt[]=array($tmp_stat, array());	     
 		 
          		 
-		 $data1 = $vbaca_trans->hitipk($row['nimhsmsmhs'],$txt_filter1);
+		 $data1 = $vbaca_trans->hitipk_krs($row['nimhsmsmhs'],$txt_filter1);
 						
-		 $ipk=0;
-		 if($vbaca_trans->sks_mbl>0){ 
-	  		$ipk = $vbaca_trans->sks_nm/$vbaca_trans->sks_mbl;
-		}
+		 $ipk=$data1['jml_sks']!=0 ? $data1['jml_sksnm']/$data1['jml_sks'] : 0;
+		 
 
                        
 					   if($ipk>2.99){

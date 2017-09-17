@@ -260,7 +260,7 @@ class dt_trnlm
 		$data = $this->vmtk->getData($where);
 		$this->vtrans=new dt_trans;
 		$dt = $this->vtrans->hitipk($user,$txt_filter1);
-		$sks = $this->vtrans->sks_mbl;
+		$sks = $dt['jml_sks'];
 		
 		if(!empty($data)){ 
 			foreach ($data as $row) {

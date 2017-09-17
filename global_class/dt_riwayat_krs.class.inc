@@ -69,10 +69,8 @@ class dt_riwayat_krs
 		$txt_filter1 = rtrim($txt_filter1, ',');
 		
 		$dt = $this->vtrans->hitipk_krs($user,$txt_filter1);
-		$ipk=0;
-		if($this->vtrans->sks_mbl_krs>0){ 
-			$ipk = round($this->vtrans->sks_nm_krs/$this->vtrans->sks_mbl_krs,2);
-		}	 
+		$ipk= ($dt['jml_sks']>0) ? round($dt['jml_sksnm']/$dt[jml_sks],2) : 0;
+			 
 		if($ipk>2.99){
 			$sks_blh=24;
 		} else{

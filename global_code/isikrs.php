@@ -4,7 +4,7 @@ require_once 'shared.php';
 
 $nim = $_POST['nim'];
 $mk = isset($_POST['mk']) ? $_POST['mk'] : array();
-$jsks = isset($_POST['totalsks']) ? $_POST['totalsks'] : 0 ;
+$jsks = isset($_POST['Jumlah']) ? $_POST['Jumlah'] : 0 ;
 $kls = isset($_POST['kls']) ? $_POST['kls'] : array();
 $idx = isset($_POST['idx']) ? $_POST['idx'] : 0;
 

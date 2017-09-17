@@ -310,7 +310,7 @@ class dt_krs
 		$data3 = array();
 		$data = $this->vmtk->getData($where);
 		$dt = $this->vtrans->hitipk($user);
-		$sks = $this->vtrans->sks_mbl;
+		$sks = $dt['jml_sks'];
 		
 		if(!empty($data)){ 
 			foreach ($data as $row) {
@@ -384,17 +384,10 @@ class dt_krs
 		return $data3;
 	}
 
-	function simpankrs($user,$mk,$jml_sks,$kls)
+	function sks_blh($ipk)
 	{
-		
-		
-		
-		$dt = $this->vtrans->hitipk_krs($user);
-		$ipk=0;
-		if($this->vtrans->sks_mbl_krs>0){ 
-			$ipk = round($this->vtrans->sks_nm_krs/$this->vtrans->sks_mbl_krs,2);
-		}	 
-		if($ipk>2.99){
+      $sks_blh=20;
+      if($ipk>2.99){
 			$sks_blh=24;
 		} else{
 			if(($ipk>=2.50) and($ipk<=2.99)){
@@ -408,18 +401,27 @@ class dt_krs
 					} else{
 						if(($ipk>0.00) and ($ipk<=1.49)){
 							$sks_blh=14;
-						} else{  
-							$sks_blh=20;
-						}
-
+						} 
 					}
 
 				}
 
 			}
 
-		}		  
+		}
+
+		return $sks_blh;		
+	}
+
+	function simpankrs($user,$mk,$jml_sks,$kls)
+	{
+			
+		$dt = $this->vtrans->hitipk_krs($user);
+		$ipk=($dt['jml_sks']>0) ? round($dt['jml_sksnm']/$dt['jml_sks'],2) : 0;	 
 		
+
+		$sks_blh=$this->sks_blh($ipk);
+			
 		//$sks_blh=24;
 		
 		$where = "nimhsmsmhs='$user'";

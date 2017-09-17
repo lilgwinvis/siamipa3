@@ -70,80 +70,7 @@
 	  	  
 	  function summaryall()
 	  {
-	    
-		/* $mythnsem = new mythnsem;
-	    $TA = $mythnsem->getthnsem();
-		
-		$this->vtrans= new dt_trans;
-		
-		$dt_mhs = new dt_mhs;  
-	    $dt_stat_mhs = new dt_stat_mhs; 
-		
-		$dt = new dt_rekap_trkeumhs;  
-	    $data = $dt_mhs->getAllData("");
-		
-		
-		
-		if(!empty($data))
-	    {   $dataaktif1=array();
-		    $dataaktif2=array();
-		    $datanonaktif=array();
-			$datacuti=array();
-			$datalulus=array();
-			$datakeluar=array();			
-			
-			foreach($data as $row)
-			{
-	            $tmp=array();		  
-		        $tmp[]=array($row["tahunmsmhs"],array());
-		        $tmp[]=array($row["nimhsmsmhs"],array());
-	            $tmp[]=array($row["nmmhsmsmhs"],array());		 			  
-			    $tmp[]=array($row["shiftmsmhs"]=="R" ? "Reguler" : "Non Reguler", array());		      
-			  	
-                $arr_stat_mhs = $dt_stat_mhs->getRStatMhs($row["nimhsmsmhs"]);
-				
-			    //$tmp[]=array($tmp_stat[$row["nimhsmsmhs"]]['rstat'][$TA]['txtstat'], array());
-			    
-				$hsl = $this->vtrans->hitipk($row["nimhsmsmhs"]);
-				$ipk = $this->vtrans->sks_mbl!=0 ? $this->vtrans->sks_nm/$this->vtrans->sks_mbl :0.00; 
-				 
-			    $tmp[]=array($this->vtrans->sks_mbl, null,array('align'=>'right'));
-			    $tmp[]=array(number_format($ipk, 2, '.', '') ,array('align'=>'right'));
-			  
-			    $tmp[]=array($arr_stat_mhs[$row["nimhsmsmhs"]]['tbstd'],array('align'=>'right'));			  
-			  
-			    $dt_keu = $dt->getrekaptrkeumhs("nimhsmsmhs='".$row["nimhsmsmhs"]."'");
-			  
-				foreach($dt_keu as $rwkeu)
-				{				   
-				  $tmp[]=array(number_format($rwkeu['kewajiban']>$rwkeu['tran'] ? $kurang=$rwkeu['kewajiban']-$rwkeu['tran'] : $kurang=0.00 , 2, ',', '.'),array('align'=>'right'));
-				}
-			    
-				switch($arr_stat_mhs[$row["nimhsmsmhs"]]['rstat'][$TA]['kdstat'])
-				{
-				  case 'A' : if($ipk>2.75)
-				             {
-				               $dataaktif1[]=$tmp;
-							 }else{  
-				               $dataaktif2[]=$tmp;
-							 }
-							 break;
-				  case 'N' : $datanonaktif[]=$tmp;
-				             break;
-                  case 'L' : $datalulus[]=$tmp;
-				             break;
-                  case 'C' : $datacuti[]=$tmp;
-				             break;
-                  case 'K' : $datakeluar[]=$tmp;
-				             break;				  
-				}
-				
-				
-			}
-		} */	
-				
-		
-		
+	    	
 		$header = array(array("Angkatan","NIM","Nama","Kelas","SKS","IPK","Batas Studi","Sisa Kewajiban"));
 		
 		$accheader=array("Mahasiswa Aktif","Mahasiswa Non Aktif","Mahasiswa Cuti","Mahasiswa Lulus","Mahasiswa Keluar");
@@ -267,9 +194,9 @@
 					$tmp_row[]=$tmp_data[0]['shiftmsmhs']=="R" ? "Reguler" : "Non Reguler";
 									
 					$hsl = $this->vtrans->hitipk($row["nimstat_mhs"]);
-					$ipk = $this->vtrans->sks_mbl!=0 ? $this->vtrans->sks_nm/$this->vtrans->sks_mbl :0.00; 
+					$ipk =$this->format_bagi($hsl['jml_sksnm'],$hsl['jml_sks']);// $this->vtrans->sks_mbl!=0 ? $this->vtrans->sks_nm/$this->vtrans->sks_mbl :0.00; 
 					 
-					$tmp_row[]='<div align="right">'.$this->vtrans->sks_mbl.'</div>';
+					$tmp_row[]='<div align="right">'.(integer) $hsl['jml_sks'].'</div>';
 					$tmp_row[]='<div align="right">'.number_format($ipk, 2, '.', '').'</div>';
 					
 					$arr_stat_mhs = $dt_stat_mhs->getRStatMhs($row["nimstat_mhs"]);
@@ -349,7 +276,7 @@
 	    $tbl1->addCell("Semester Awal", null, 'header');
 	    $tbl1->addCell("Semester Akhir", null, 'header');
 		$tbl1->addCell("Batas Studi", null, 'header');
-		 $tbl1->addCell("Toleransi Semester Akhir", null, 'header');
+		$tbl1->addCell("Toleransi Semester Akhir", null, 'header');
 		$tbl1->addCell("Toleransi Batas Studi", null, 'header');
 				
 		$tbl->addRow();
@@ -396,7 +323,7 @@
 	  function summarymhs($nim)
 	  {
 	   
-	  //$html_txt="<div id='accordion'>";	
+	  
       $html_txt="<div id='tabs'>";	
 
        $html_txt.="<ul>";
@@ -406,12 +333,10 @@
 	   $html_txt.="<li><a href='#tabs-4'>Nilai T</a></li>";
        $html_txt.="<li><a href='#tabs-5'>Mata Kuliah Yg Belum Diambil</a></li>";
        $html_txt.="</ul>";
-
-
 	  
 	  
-	  //$html_txt.="<h3><a href='#'>SKS,IPS,IPK</a></h3>";			  
 	  $html_txt.="<div id='tabs-1'>";
+	  
 	  $html_txt.="<fieldset>";
 	  $html_txt.="<legend>Jumlah IPS dan SKS Persemester</legend>";						 					   							  
 	  $html_txt.=$this->sks_sem($nim);
@@ -435,29 +360,23 @@
 	  
 	  $html_txt.="</div>";
 				
-	  //$html_txt.="<h3><a href='#'>Nilai D</a></h3>";
-	  $html_txt.="<div id='tabs-2'>";
-	  //$html_txt.="<fieldset>";	  
-	  $html_txt.="<div>".$this->mytb('D',$nim)."</div>";
-	  //$html_txt.="</fieldset>";
+	  
+	  $html_txt.="<div id='tabs-2'>";	  
+	  $html_txt.="<div>".$this->mytb('D',$nim)."</div>";	  
 	  $html_txt.="</div>";
 	  
-	  //$html_txt.="<h3><a href='#'>Nilai E</a></h3>";	  
-	  $html_txt.="<div id='tabs-3'>";
-	  //$html_txt.="<fieldset>";
-	  $html_txt.="<div>".$this->mytb('E',$nim)."</div>";
-	  //$html_txt.="</fieldset>";
+	  
+	  $html_txt.="<div id='tabs-3'>";	  
+	  $html_txt.="<div>".$this->mytb('E',$nim)."</div>";	  
 	  $html_txt.="</div>";
 	  
-      //$html_txt.="<h3><a href='#'>Nilai T</a></h3>";
-	  $html_txt.="<div id='tabs-4'>";
-	  //$html_txt.="<fieldset>";
-	  $html_txt.="<div>".$this->mytb("T",$nim)."</div>";
-	  //$html_txt.="</fieldset>";
+      
+	  $html_txt.="<div id='tabs-4'>";	  
+	  $html_txt.="<div>".$this->mytb("T",$nim)."</div>";	  
 	  $html_txt.="</div>";
 	  
 		
-      //$html_txt.="<h3><a href='#'>Mata Kuliah Yg Belum Diambil</a></h3>";
+      
       $html_txt.="<div id='tabs-5'>";
 	  $html_txt.="<fieldset>";
       $html_txt.="<div>".$this->blm_amb($nim)."</div>";
@@ -577,14 +496,18 @@
 	  
 	  }
 	  
-	  
+	  private function format_bagi($a,$b)
+	  {
+         return ($b!=0 ? number_format($a/$b, 2, '.', '') : '0.00');
+	  }
 	  
 	  function sks_sem($nim)
 	  {
 	            
-	            
+	            $mythnsem = new mythnsem;
+	            //$mytable  = new mytable;
+				
 				$this->vkhs=new dt_khs;
-				$this->vkhs->buildsem($nim);
 				$this->vtrans= new dt_trans;
 		        
 		 
@@ -595,33 +518,32 @@
 	             $tbl->addCell("IPS", null, 'header');
 				 $tbl->addCell("IPK", null, 'header'); 
 				  
-				$sem[1]='Ganjil';
-		        $sem[2]='Genap';
 				
+				$data = $this->vkhs->get_rekapkhs($nim);
+
 				$i=1;
-			 if(!empty($this->vkhs->vthsms)){	
+			 if(!empty($data)){	
 				$tmpsms="";
-				foreach($this->vkhs->vthsms as $row){	
+				foreach($data[$nim] as $thnsms => $val){	
 				 
 				       $tbl->addRow();
-					   if($row!='0000' ){
-					     $thn = str_split($row, 4); 
-					     $tbl->addCell("Sem. ke - $i (sem. ".$sem[$thn[1]].' '.$thn[0].")", null, 'data');
+					   if($thnsms!='0000' ){
+                         $tbl->addCell("Sem. ke - $i (".$mythnsem->gettxtthnsem($thnsms,'Sem. ').")", null, 'data');					     
                        }else{
 					     $tbl->addCell("Konversi", null, 'data');
 					   }
 					   
                    		if($tmpsms==""){			   
-					     $tmpsms=$row;
+					     $tmpsms=$thnsms;
 					    }else{
-						 $tmpsms=$tmpsms.','.$row; 
+						 $tmpsms=$tmpsms.','.$thnsms; 
 						}
 					   
-					   $data = $this->vtrans->hitipk($nim,$tmpsms);
+					   $hsl=$this->vtrans->hitipk($nim,$tmpsms);
 					   
-					   $tbl->addCell($this->vkhs->hitsks($nim,$row), null, 'data',array('align'=>'right'));
-                       $tbl->addCell($this->vkhs->hitip($nim,$row), null, 'data',array('align'=>'right')); 					   
-					   $tbl->addCell($this->vtrans->sks_mbl!=0 ? number_format($this->vtrans->sks_nm/$this->vtrans->sks_mbl, 2, '.', '') : '0.00', null, 'data',array('align'=>'right'));
+					   $tbl->addCell((integer) $val['jml_sks'], null, 'data',array('align'=>'right'));
+                       $tbl->addCell($this->format_bagi($val['jml_sksam'],$val['jml_sks']), null, 'data',array('align'=>'right'));		   
+					   $tbl->addCell($this->format_bagi($hsl['jml_sksnm'],$hsl['jml_sks']), null, 'data',array('align'=>'right'));
 					   
 					   $i+=1;
 				     	  				 	
@@ -656,7 +578,7 @@
 	             $tbl->addCell($sks_konv, null, 'data');
 	             $tbl->addCell($this->vtrans->sks_mbl-$sks_konv, null, 'data');
 				 $tbl->addCell($this->vmtk_ctrl->sksnmbl($nim), null, 'data'); 
-				 $tbl->addCell($this->vmtk_ctrl->hittotsks(), null, 'data'); 
+				 $tbl->addCell((integer) $this->vmtk_ctrl->hittotsks(), null, 'data'); 
               
                 return $tbl->display();				 
 	  
@@ -673,9 +595,9 @@
 				 $tbl->addCell("IPK", null, 'header'); 
 				 
 				 $tbl->addRow();
-	             $tbl->addCell($this->vtrans->sks_mbl, null, 'data');
-	             $tbl->addCell($this->vtrans->sks_nm, null, 'data');
-				 $tbl->addCell($this->vtrans->sks_mbl!=0 ? number_format($this->vtrans->sks_nm/$this->vtrans->sks_mbl, 2, '.', '') : '0.00', null, 'data'); 
+	             $tbl->addCell((integer) $data['jml_sks'], null, 'data');
+	             $tbl->addCell((integer) $data['jml_sksnm'], null, 'data');
+				 $tbl->addCell($this->format_bagi($data['jml_sksnm'],$data['jml_sks']), null, 'data'); 
 					 	
 		 return $tbl->display();
 	  }

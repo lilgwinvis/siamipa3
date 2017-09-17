@@ -27,7 +27,7 @@ class dt_ta
 			$tmp_akh=(strlen($row['akhbim'])<6 ? '0'.$row['akhbim']: $row['akhbim']);
 			    
 				$hsl = $vtrans->hitipk($row["nimhssidang"]);
-				$ipk = $vtrans->sks_mbl!=0 ? $this->vtrans->sks_nm/$this->vtrans->sks_mbl :0.00; 
+				$ipk = $hsl['jml_sks']!=0 ? $hsl['jml_sksnm']/$hsl['jml_sks'] :0.00; 
 				
 			$lls[$row['nimhssidang']]=array(mktime(0,0,0,$row['tgl'],$row['bln'],$row['thn']),number_format($ipk, 2, '.', ''),$tmp_awl,$tmp_akh,$row['nidn_pemb1'],$row['nidn_pemb2']);		   
 		   }

@@ -318,35 +318,10 @@
                         
                         $data1 = $vbaca_trans->hitipk_krs($row['nimhsmsmhs']);
 						
-						$ipk=0;
-					 	if($vbaca_trans->sks_mbl_krs>0){ 
-	  						$ipk = round($vbaca_trans->sks_nm_krs/$vbaca_trans->sks_mbl_krs,2);
-						}	 
-          
-		               if($ipk>2.99){
-                           $sks_blh=24;
-                       } else{
-			                   if(($ipk>=2.50) and($ipk<=2.99)){
-				                  $sks_blh=21;
-			                 } else{
-				                     if(($ipk>=2.00) and ($ipk<=2.49)){
-					                     $sks_blh=18;
-				                   } else{
-					                    	  if(($ipk>=1.50) and ($ipk<=1.99)){
-						                      $sks_blh=16;
-					                      } else{  
-										          if(($ipk>0.00) and ($ipk<=1.49)){
-						                              $sks_blh=14;
-					                              } else{  
-										              $sks_blh=20;
-					                                }
-					                            }
-
-				                         }
-
-			                       }
-                             }  								   
-						
+						$ipk = ($data1['jml_sks']>0) ? round($data1['jml_sksnm']/$data1['jml_sks'],2) : 0;
+						               
+						$sks_blh=$vbaca_krs->sks_blh($ipk);
+					   
 						//$sks_blh=24;
 						
 						 $tmpdt[]=array(number_format($ipk, 2, '.', ''),array('align'=>'right'));

@@ -9,12 +9,34 @@ class dt_khs
    var $cnt = 1; 
    
    function __construct(){
-     $this->vnilai = new tb_gen('vw_tbtrnlptrnlmjnmtk');
-	 
+     $this->vnilai = new tb_gen('vw_tbtrnlptrnlmjnmtk');	 
+   }   
+   
+   function get_rekapkhs($user='')
+   {
+      $this->vnilai->sql_select = "nimhstrnlm,thsmstrnlm,SUM(bobottrnlm*IF(nlakhtrnlm<>'K',sksmktbkmk,0)) as jml_sksam,SUM(IF(nlakhtrnlm<>'K',sksmktbkmk,0)) as jml_sks"; 
+	  
+	  if(!empty($user)){
+	    $where = "nimhstrnlm='$user'"; 
+      }
+
+      $this->vnilai->sql_orderby = 'nimhstrnlm,thsmstrnlm';
+      $this->vnilai->sql_groupby = 'nimhstrnlm,thsmstrnlm';
+      $data = $this->vnilai->getData($where); 
+      
+      $tmp=array();
+      if(!empty($data))
+      {
+         foreach ($data as $row) {
+         	$tmp[strtoupper($row['nimhstrnlm'])][$row['thsmstrnlm']]['jml_sks']=$row['jml_sks'];
+         	$tmp[strtoupper($row['nimhstrnlm'])][$row['thsmstrnlm']]['jml_sksam']=$row['jml_sksam'];
+         }
+      }
+
+      return $tmp;
    }
-   
-   
-   
+
+
    function semke($thsms)
    {
      $sem = str_split($thsms, 4);			

@@ -162,9 +162,9 @@
 								  
 			$data2 = $this->vtrans->getData($vnim);		  	  
 		    								
-			$this->vtrans->hitipk($vnim);
-			$ipk =  $this->vtrans->sks_nm /$this->vtrans->sks_mbl;
-			$sks = $this->vtrans->sks_mbl;
+			$dt=$this->vtrans->hitipk($vnim);
+			$ipk =  $dt['jml_sksnm'] /$dt['jml_sks'];
+			$sks =  $dt['jml_sks'];
 					
 			$tmp="../Admin/cetak/transkrip/Transkrip Nilai - ".$vnim.".xls";
 			            
@@ -333,9 +333,9 @@
 			}
 
            
-		   $this->vtrans->hitipk($vnim);
-		   $ipk =  $this->vtrans->sks_nm /$this->vtrans->sks_mbl;
-		   $sks = $this->vtrans->sks_mbl;
+		   $dt = $this->vtrans->hitipk($vnim);
+		   $ipk =  $dt['jml_sksnm'] /$dt['jml_sks'];
+		   $sks =  $dt['jml_sks'];
 		   
 		   $tbl3 = new HTML_Table(null, 'display', 0, 0, 0,array("id" => "tb_ttd",'border'=>'1','width'=>'37%','cellpadding'=>'2'));
 	   
