@@ -95,9 +95,10 @@ class dt_khs
 	  return $data;
 	}
 	
-	function buildkhs_nl($user,$thsms,$nl)
+	function buildkhs_nl($user,$nl) //,$thsms
     {	  
-	  $where = "nimhstrnlm='$user' and thsmstrnlm='$thsms' and nlakhtrnlm='$nl'"; 
+	  $where = "nimhstrnlm='$user' and nlakhtrnlm='$nl'"; //and thsmstrnlm='$thsms'
+      $this->vnilai->sql_orderby = 'thsmstrnlm';
       $data = $this->vnilai->getData($where); 
 	  return $data;
 	}

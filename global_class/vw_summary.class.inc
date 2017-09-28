@@ -336,7 +336,7 @@
 	  
 	  
 	  $html_txt.="<div id='tabs-1'>";
-	  
+
 	  $html_txt.="<fieldset>";
 	  $html_txt.="<legend>Jumlah IPS dan SKS Persemester</legend>";						 					   							  
 	  $html_txt.=$this->sks_sem($nim);
@@ -421,11 +421,11 @@
 				 $tbl1->addCell("NM", null, 'header');
 				 
 				$this->vkhs=new dt_khs;	
-                $this->vkhs->buildsem($nim);
+                //$this->vkhs->buildsem($nim);
                       		
-					for($i = 0; $i < count($this->vkhs->vthsms_txt); $i++){
+					//for($i = 0; $i < count($this->vkhs->vthsms_txt); $i++){
 					
-				    	$data = $this->vkhs->buildkhs_nl($nim,$this->vkhs->vthsms[$i],$nl);
+				    	$data = $this->vkhs->buildkhs_nl($nim,$nl); //$this->vkhs->vthsms[$i],
                          
                           if(!empty($data)){	
 						
@@ -440,7 +440,7 @@
 								
 								 }     
 								}		
-							}	
+					//		}	
 								$data1 = $this->vkhs->buildkhs_ulang($nim,$nl);
 										if(!empty($data1)){
 										   foreach($data1 as $row){		
