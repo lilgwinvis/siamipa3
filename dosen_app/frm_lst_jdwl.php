@@ -1,4 +1,5 @@
-<?php require_once 'shared.php'; 
+<?php session_start(); 
+     
      	 
      
 	 $islog = $_SESSION['islog'];

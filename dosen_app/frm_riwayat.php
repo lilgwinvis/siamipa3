@@ -1,4 +1,4 @@
-<?php require_once 'shared.php';     
+<?php session_start();     
      	 
      
 	 $islog = $_SESSION['islog'];
@@ -11,7 +11,7 @@
 	 }
 	 else
 	 {	 
-	     
+	     require_once 'shared.php';
 	     
 		 $login = new login;
 		if($login->logintime()){		  

@@ -8,7 +8,7 @@ switch($idx)
 	      $tmp=str_split($TA,4);
 		  
      	  if($tmp[1] == 1)
-		  {
+		     {
             $semester=($tmp[0]-1)."2";
          }else{
             $semester=$tmp[0]."1"; 

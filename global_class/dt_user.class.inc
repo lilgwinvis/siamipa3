@@ -20,7 +20,7 @@ class dt_user {
 	
 	function isuserexist($user,$pass)
 	{
-	 $where = "user_id='$user' AND pass='$pass'"; 	
+	 $where = "user_id='$user' AND pass=md5('$pass')"; 	
 	 $this->getData($where);
      return  $this->numrows>0;	 
 	}

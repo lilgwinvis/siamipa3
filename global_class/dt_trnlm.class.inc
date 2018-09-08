@@ -180,6 +180,7 @@ class dt_trnlm
 	
 	function getmtk1($thnsms,$nim)
 	{	
+		
 		$this->vkrs_mtk = new tb_gen('trnlm_jn_mtk');
 		$this->vkrs_mtk->sql_select  = 'thsmstrnlm,nimhstrnlm,kdkmktrnlm,nakmktbkmk,sksmktbkmk,sksprtbkmk,shifttrnlm,semestrnlm,kelastrnlm,semestbkmk,wp,tgl_input';
 		$this->vkrs_mtk->sql_orderby = 'semestbkmk,kdkmktrnlm';

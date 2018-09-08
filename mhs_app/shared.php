@@ -1,7 +1,4 @@
 <?php   
- if (session_status() == PHP_SESSION_NONE) {
-   session_start();
-}
  if(!defined('DS')){
 	define('DS', DIRECTORY_SEPARATOR);
 	define('ROOT', dirname(dirname(__FILE__))); 

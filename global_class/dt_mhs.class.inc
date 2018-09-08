@@ -15,7 +15,7 @@ class dt_mhs
 
 	function isuserexist($user,$pass)
 	{
-		$where = "nimhsmsmhs='$user' AND pass='$pass'";  	
+		$where = "nimhsmsmhs='$user' AND pass=md5('$pass')";  	
 		$this->getAllData($where);
 		return  $this->numrows>0;	 
 	}

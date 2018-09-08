@@ -1,4 +1,4 @@
-<?php  require_once 'shared.php';
+<?php session_start(); 
      
     
      	 
@@ -12,7 +12,7 @@
 		 exit();
 	 }
 	 else
-	 {	    
+	 {	     require_once 'shared.php';
 			
 			$login = new login;
 		if($login->logintime()){		  

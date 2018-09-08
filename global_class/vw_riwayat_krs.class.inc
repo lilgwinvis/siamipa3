@@ -125,7 +125,7 @@
 	    
 		$txt_filter1 = rtrim($txt_filter, "'".$thnsms."'"); 
 		$txt_filter1 = rtrim($txt_filter1, ','); 
-       
+              
 		
 	  $dt_mhs = new dt_mhs; 
 	  $dt_trnlm = new dt_trnlm;

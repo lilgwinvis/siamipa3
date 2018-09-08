@@ -26,14 +26,10 @@
   <title>SIA FMIPA</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link type="text/css" href="../css/style.css" rel="stylesheet" />
-  <script type="text/javascript" src="../js/jquery.js">
-</script>
-  <script type="text/javascript" src="../js/jquery.ui.all.js">
-</script>
-  <script type="text/javascript" src="../js/jquery.layout.js">
-</script>
-  <script type="text/javascript" src="local_js/index.js">
-</script>
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery.ui.all.js"></script>
+  <script type="text/javascript" src="../js/jquery.layout.js"></script>
+  <script type="text/javascript" src="local_js/index.js"></script>
   <script type="text/javascript">
 //<![CDATA[
 

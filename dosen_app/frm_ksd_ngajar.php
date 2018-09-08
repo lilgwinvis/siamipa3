@@ -1,4 +1,4 @@
-<?php require_once 'shared.php';
+<?php session_start();
 $islog = $_SESSION['islog']; 
 
 if($islog==0)
@@ -7,7 +7,7 @@ if($islog==0)
 	exit();
 }
 else
-{  
+{  require_once 'shared.php';
 	
 	$login = new login;
 	if($login->logintime()){		  

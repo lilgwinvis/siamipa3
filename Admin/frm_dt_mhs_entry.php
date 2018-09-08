@@ -66,7 +66,7 @@
 		      var oTable;
 			    
 				$( "#datepicker" ).datepicker({
-					  dateFormat: "yy-mm-dd"				  
+					  dateFormat: "yyyy-mm-dd"				  
 					});
 			   <?php
 			     if($idx==2)

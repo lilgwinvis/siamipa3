@@ -22,7 +22,7 @@ class mythnsem
 		$bulan = date('n')-1;
 		$bulan_ini = $nama_bulan[$bulan];
 						
-		$data_arr = array(0 => array("semester" => 1, "month" => "September Oktober November Desember Januari Februari"),1 => array("semester" => 2, "month" => "Maret April Mei Juni Juli Agustus"));
+		$data_arr = array(0 => array("semester" => 1, "month" => "Agustus September Oktober November Desember Januari"),1 => array("semester" => 2, "month" => "Februari Maret April Mei Juni Juli"));
 		$angka_sem = 0;
 		for ($i=0; $i<2; $i++) {
 		   
@@ -33,7 +33,7 @@ class mythnsem
 		}
 		
 		/* End = menentukan semester ganjil/genap */
-        		
+        
 		if($angka_sem==1){
 		  if((date('n')== 1) or(date('n')== 2)){
 		    $this->thnsem_ = ($tahun_ini-1).$angka_sem; 

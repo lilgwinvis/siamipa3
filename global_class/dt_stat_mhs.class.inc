@@ -132,13 +132,13 @@ class dt_stat_mhs
 				   $jmlcuti=$jmlcuti+1;				   				   
 				 } 
 				
-				if(($i<=14) and ($thnawal<=2010)){  
+				//if(($i<=14) and ($thnawal<=2010)){  
 				   $jmltolcuti=$jmltolcuti+1;                    					 
-				 } else {
-				    if(($i<=10) and ($thnawal>2010) ){  
-				        $jmltolcuti=$jmltolcuti+1;				       
-					}
-				}
+				 //} else {
+				  //  if(($i<=10) and ($thnawal>2010) ){  
+				  //      $jmltolcuti=$jmltolcuti+1;				       
+					//}
+				//}
 				 
 			  }else{
                  if(strpos("A N",$v['kdstat'])!==false)
@@ -153,13 +153,14 @@ class dt_stat_mhs
 	 	
 				
 		$semakhir = $vmythnsem->gettxtthnsem($vmythnsem->addthnsem($semawal,7+$jmlcuti));		
-		$tolsemakhir =  $vmythnsem->gettxtthnsem($vmythnsem->addthnsem($semawal,($thnawal<=2010 ? 13 : 9)+$jmltolcuti));
+		$tolsemakhir =  $vmythnsem->gettxtthnsem($vmythnsem->addthnsem($semawal,13+$jmltolcuti));//($thnawal<=2010 ? 13 : 9)+$jmltolcuti
 		
 		$sembts = $vmythnsem->getsem($vmythnsem->addthnsem($semawal,7+$jmlcuti));
 		$thnbts = $vmythnsem->getthn($vmythnsem->addthnsem($semawal,7+$jmlcuti));
-        $tolsembts = $vmythnsem->getsem($vmythnsem->addthnsem($semawal,($thnawal<=2010 ? 13 : 9)+$jmltolcuti));		
-		$tolthnbts = $vmythnsem->getthn($vmythnsem->addthnsem($semawal,($thnawal<=2010 ? 13 : 9)+$jmltolcuti));
-		
+        $tolsembts = $vmythnsem->getsem($vmythnsem->addthnsem($semawal,13+$jmltolcuti));	
+        //($thnawal<=2010 ? 13 : 9)+$jmltolcuti	
+		$tolthnbts = $vmythnsem->getthn($vmythnsem->addthnsem($semawal,13+$jmltolcuti));
+		//($thnawal<=2010 ? 13 : 9)+$jmltolcuti
 		  $hsl['sawal']=$txtsemawal;
 	      $hsl['sakhir']=$semakhir;	
 		  $hsl['bstd']=(($sembts==2) ? 'Agustus '.($thnbts+1):'Februari '.($thnbts+1));
