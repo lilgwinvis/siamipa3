@@ -137,7 +137,7 @@ class dt_mhs
 			return 0;
 		}else{
 			$nama = addslashes($nama);
-			$tmp_data = array('kdpstmsmhs'=>'44201','nimhsmsmhs'=>$nim,'nmmhsmsmhs'=>$nama,'tahunmsmhs'=>$thnmsk,'tplhrmsmhs'=>$tempat,'smawlmsmhs'=>$thnmsk.$sem,'shiftmsmhs'=>$kelas,'kdjekmsmhs'=>$kelamin,'pass'=>$nim,'agamamsmhs'=>$agama,'almmsmhs'=>$alamat,'emailmsmhs'=>$email,'smamsmhs'=>$penddk,'statmsmhs'=>$status,'tlpmsmhs'=>$tlp,'bpmsmhs'=>$bp,'link_forlap'=>$link);
+			$tmp_data = array('kdpstmsmhs'=>'44201','nimhsmsmhs'=>strtoupper(trim($nim)),'nmmhsmsmhs'=>$nama,'tahunmsmhs'=>$thnmsk,'tplhrmsmhs'=>$tempat,'smawlmsmhs'=>$thnmsk.$sem,'shiftmsmhs'=>$kelas,'kdjekmsmhs'=>$kelamin,'pass'=>md5(strtoupper(trim($nim))),'agamamsmhs'=>$agama,'almmsmhs'=>$alamat,'emailmsmhs'=>$email,'smamsmhs'=>$penddk,'statmsmhs'=>$status,'tlpmsmhs'=>$tlp,'bpmsmhs'=>$bp,'link_forlap'=>$link);
 			if(!empty($datepicker))
 			{
 				$tmp_data['tglhrmsmhs']=$datepicker;

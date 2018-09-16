@@ -35,7 +35,7 @@ class dt_dosen
    
    function isuserexist($user,$pass)
 	{
-	 $where = "Kode='$user' AND pass='$pass'";   	
+	 $where = "Kode='$user' AND pass=MD5('$pass')";   	
 	 $this->getAllData($where);
      return  $this->numrows>0;	 
 	}
