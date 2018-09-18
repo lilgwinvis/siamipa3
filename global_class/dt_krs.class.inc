@@ -320,8 +320,8 @@ class dt_krs
 				//$where = "kdkmksyarat='$tmp'"; 
 				//$data1 = $this->vsyarat->getData($where);
 				//$num_rows=$this->vsyarat->numrows;
-				
-				if($tmp=="UBB106" or $tmp=="MAT352" or $tmp=="MAT353" or $tmp=="MAT370"){
+				//or $tmp=="MAT370"
+				if($tmp=="UBB106" or $tmp=="MAT352" or $tmp=="MAT353"){
 					
 					if($sks>=110){					
 						$ctk=1;						

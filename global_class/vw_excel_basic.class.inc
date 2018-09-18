@@ -1,6 +1,10 @@
 <?php
 
 require_once 'shared.php';
+//require '../vendor/autoload.php';
+
+//use PhpOffice\PhpSpreadsheet\Spreadsheet;
+//use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class vw_excel_basic
 { 
@@ -9,6 +13,7 @@ class vw_excel_basic
   function __construct()
   {
     $this->objPHPExcel = new PHPExcel();
+    //$this->objPHPExcel = new Spreadsheet();
   }
   
   function createSheet()
@@ -119,6 +124,7 @@ class vw_excel_basic
    
    function save($nm_file)
    {
+      //$objWriter = new Xlsx($this->objPHPExcel);
       $objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel5');
       $objWriter->save($nm_file);   
    }
