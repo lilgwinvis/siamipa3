@@ -6,14 +6,27 @@ require_once 'shared.php';
 //use PhpOffice\PhpSpreadsheet\Spreadsheet;
 //use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+define('BORDER_MEDIUM', PHPExcel_Style_Border::BORDER_MEDIUM);
+define('BORDER_THIN', PHPExcel_Style_Border::BORDER_THIN);
+
+define('HORIZONTAL_LEFT', PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+define('HORIZONTAL_CENTER', PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+
+
+define('VERTICAL_CENTER', PHPExcel_Style_Alignment::VERTICAL_CENTER);
+define('VERTICAL_BOTTOM', PHPExcel_Style_Alignment::VERTICAL_BOTTOM);
+
 class vw_excel_basic
 { 
-  var $objPHPExcel;
+  private $objPHPExcel;
   
   function __construct()
   {
     $this->objPHPExcel = new PHPExcel();
     //$this->objPHPExcel = new Spreadsheet();
+
+    
+
   }
   
   function createSheet()

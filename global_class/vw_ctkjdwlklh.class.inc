@@ -19,36 +19,36 @@ class vw_ctkjdwlklh extends vw_excel_basic
 	  $tmp_font2 = $tmp_font1;
 	  $tmp_font2['bold']=false;
 	  	  
-	  $tmp_borders = $this->build_borders(PHPExcel_Style_Border::BORDER_THIN,PHPExcel_Style_Border::BORDER_MEDIUM);	 
+	  $tmp_borders = $this->build_borders(BORDER_THIN,BORDER_MEDIUM);	 
 	  
-	  $this->jdl1=array(array('add'=>'A1','txt'=>'PROGRAM STUDI MATEMATIKA','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-	                   array('add'=>'A2','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					   array('add'=>'A3','txt'=>'UNIVERSITAS BALE BANDUNG','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font), 
+	  $this->jdl1=array(array('add'=>'A1','txt'=>'PROGRAM STUDI MATEMATIKA','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+	                   array('add'=>'A2','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					   array('add'=>'A3','txt'=>'UNIVERSITAS BALE BANDUNG','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font), 
                        
-					   array('add'=>'A5','txt'=>'JADWAL KULIAH','madd'=>'A5:I5','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					   array('add'=>'A6','txt'=>'','madd'=>'A6:I6','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
+					   array('add'=>'A5','txt'=>'JADWAL KULIAH','madd'=>'A5:I5','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
+					   array('add'=>'A6','txt'=>'','madd'=>'A6:I6','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
 					   
-					   array('add'=>'A','row'=>8,'txt'=>'Hari','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'A','wbrdakh'=>'I','wbrdjml'=>0,'wborders'=>$tmp_borders),
-					   array('add'=>'B8','txt'=>'Awal','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'C8','txt'=>'Akhir','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'D8','txt'=>'Sem','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),					   				   
-					   array('add'=>'E8','txt'=>'Kelas','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'F8','txt'=>'Kode Matakuliah','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'G8','txt'=>'Nama Matakuliah','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'H8','txt'=>'Nama Dosen','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'I8','txt'=>'Ruang Kelas','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1)
+					   array('add'=>'A','row'=>8,'txt'=>'Hari','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'A','wbrdakh'=>'I','wbrdjml'=>0,'wborders'=>$tmp_borders),
+					   array('add'=>'B8','txt'=>'Awal','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'C8','txt'=>'Akhir','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'D8','txt'=>'Sem','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),					   				   
+					   array('add'=>'E8','txt'=>'Kelas','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'F8','txt'=>'Kode Matakuliah','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'G8','txt'=>'Nama Matakuliah','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'H8','txt'=>'Nama Dosen','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'I8','txt'=>'Ruang Kelas','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1)
 					   
 					   );
 
-      $this->jdwl = array(array('add'=>'A','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2,'wbrdawl'=>'A','wbrdakh'=>'I','wbrdjml'=>0,'wborders'=>$tmp_borders),
-					      array('add'=>'B','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-					      array('add'=>'C','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-					      array('add'=>'D','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font2),					   				   
-					      array('add'=>'E','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
-					      array('add'=>'F','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
-					      array('add'=>'G','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
-					      array('add'=>'H','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
-					      array('add'=>'I','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2)
+      $this->jdwl = array(array('add'=>'A','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2,'wbrdawl'=>'A','wbrdakh'=>'I','wbrdjml'=>0,'wborders'=>$tmp_borders),
+					      array('add'=>'B','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
+					      array('add'=>'C','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
+					      array('add'=>'D','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font2),					   				   
+					      array('add'=>'E','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
+					      array('add'=>'F','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
+					      array('add'=>'G','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
+					      array('add'=>'H','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
+					      array('add'=>'I','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2)
 					      ); 
       
        

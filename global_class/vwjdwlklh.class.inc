@@ -288,9 +288,9 @@ class vwjdwlklh
 		$data=$this->dtjdwlklh->buildjdwlklh();
 		
 		if($sem==1){
-			$tmp="../Admin/cetak/bap/Jadwal Kuliah Ganjil ".$thn.($thn+1).".xlsx";
+			$tmp="../Admin/cetak/bap/Jadwal Kuliah Ganjil ".$thn.($thn+1).".xls";
 		}else{
-			$tmp="../Admin/cetak/bap/Jadwal Kuliah Genap ".$thn.($thn+1).".xlsx";
+			$tmp="../Admin/cetak/bap/Jadwal Kuliah Genap ".$thn.($thn+1).".xls";
 		}
 		
 		$vwctkjdwlklh = new vw_ctkjdwlklh;
