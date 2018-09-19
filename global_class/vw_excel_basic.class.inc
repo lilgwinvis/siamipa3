@@ -8,13 +8,24 @@ require_once 'shared.php';
 
 define('BORDER_MEDIUM', PHPExcel_Style_Border::BORDER_MEDIUM);
 define('BORDER_THIN', PHPExcel_Style_Border::BORDER_THIN);
+define('BORDER_NONE', PHPExcel_Style_Border::BORDER_NONE);
 
 define('HORIZONTAL_LEFT', PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
 define('HORIZONTAL_CENTER', PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+define('HORIZONTAL_RIGHT', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
 
 
 define('VERTICAL_CENTER', PHPExcel_Style_Alignment::VERTICAL_CENTER);
 define('VERTICAL_BOTTOM', PHPExcel_Style_Alignment::VERTICAL_BOTTOM);
+define('VERTICAL_TOP', PHPExcel_Style_Alignment::VERTICAL_TOP);
+
+define('ORIENTATION_PORTRAIT', PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+define('ORIENTATION_LANDSCAPE', PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+define('PAPERSIZE_LEGAL', PHPExcel_Worksheet_PageSetup::PAPERSIZE_LEGAL);
+define('PAPERSIZE_A4', PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+
+define('BREAK_ROW', PHPExcel_Worksheet::BREAK_ROW);
+
 
 class vw_excel_basic
 { 

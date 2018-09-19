@@ -28,38 +28,38 @@ class vw_ctkbap extends vw_excel_basic
 	  $tmp_font3['size']=20;
 	  
 	  
-	  $tmp_borders = $this->build_borders(PHPExcel_Style_Border::BORDER_THIN,PHPExcel_Style_Border::BORDER_MEDIUM);	 
+	  $tmp_borders = $this->build_borders(BORDER_THIN,BORDER_MEDIUM);	 
 	  
-	  $this->jdl1=array(array('add'=>'A1','txt'=>'PROGRAM STUDI MATEMATIKA','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-	                   array('add'=>'A2','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					   array('add'=>'A3','txt'=>'UNIVERSITAS BALE BANDUNG','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1), 
+	  $this->jdl1=array(array('add'=>'A1','txt'=>'PROGRAM STUDI MATEMATIKA','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+	                   array('add'=>'A2','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					   array('add'=>'A3','txt'=>'UNIVERSITAS BALE BANDUNG','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1), 
                        
-					   array('add'=>'A5','txt'=>'BERITA ACARA PERKULIAHAN','madd'=>'A5:J5','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
+					   array('add'=>'A5','txt'=>'BERITA ACARA PERKULIAHAN','madd'=>'A5:J5','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
 					   
-					   array('add'=>'A7','txt'=>'MATA KULIAH','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					   array('add'=>'A8','txt'=>'DOSEN','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					   array('add'=>'A9','txt'=>'Semester / Tahun Akademik','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					   array('add'=>'A10','txt'=>'Kelas','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					   array('add'=>'A7','txt'=>'MATA KULIAH','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					   array('add'=>'A8','txt'=>'DOSEN','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					   array('add'=>'A9','txt'=>'Semester / Tahun Akademik','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					   array('add'=>'A10','txt'=>'Kelas','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
 					   				   
-					   array('add'=>'A','row'=>12,'txt'=>'Pertemuan Ke','madd'=>'A12:A13','merge'=>true,'warp'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'A','wbrdakh'=>'J','wbrdjml'=>1,'wborders'=>$tmp_borders),
-					   array('add'=>'B12','txt'=>'Tanggal (tgl/bln/th)','madd'=>'B12:B13','merge'=>true,'warp'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'C12','txt'=>'Waktu','madd'=>'C12:D12','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'C13','txt'=>'Awal','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'D13','txt'=>'Akhir','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'E12','txt'=>'Materi (Rencana)','madd'=>'E12:E13','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'F12','txt'=>'Materi (Realisasi)','madd'=>'F12:F13','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'G12','txt'=>'Metode  Pembelajar-an *)','madd'=>'G12:G13','merge'=>true,'warp'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'H12','txt'=>'Jumlah siswa hadir','madd'=>'H12:H13','merge'=>true,'warp'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'I12','txt'=>'TTD  dosen','madd'=>'I12:I13','merge'=>true,'warp'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
-					   array('add'=>'J12','txt'=>'TTD Mhs','madd'=>'J12:J13','merge'=>true,'warp'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'A','row'=>12,'txt'=>'Pertemuan Ke','madd'=>'A12:A13','merge'=>true,'warp'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'A','wbrdakh'=>'J','wbrdjml'=>1,'wborders'=>$tmp_borders),
+					   array('add'=>'B12','txt'=>'Tanggal (tgl/bln/th)','madd'=>'B12:B13','merge'=>true,'warp'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'C12','txt'=>'Waktu','madd'=>'C12:D12','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'C13','txt'=>'Awal','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'D13','txt'=>'Akhir','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'E12','txt'=>'Materi (Rencana)','madd'=>'E12:E13','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'F12','txt'=>'Materi (Realisasi)','madd'=>'F12:F13','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'G12','txt'=>'Metode  Pembelajar-an *)','madd'=>'G12:G13','merge'=>true,'warp'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'H12','txt'=>'Jumlah siswa hadir','madd'=>'H12:H13','merge'=>true,'warp'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'I12','txt'=>'TTD  dosen','madd'=>'I12:I13','merge'=>true,'warp'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'J12','txt'=>'TTD Mhs','madd'=>'J12:J13','merge'=>true,'warp'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
 					   );
 
-      $this->jdlmtk = array(array('add'=>'C7','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					       array('add'=>'C8','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					       array('add'=>'C9','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1),
-					       array('add'=>'C10','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1)); 
+      $this->jdlmtk = array(array('add'=>'C7','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					       array('add'=>'C8','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					       array('add'=>'C9','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1),
+					       array('add'=>'C10','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1)); 
       
-      $this->isidata = array(array('add'=>'A','row'=>'0','txt'=>'','row_height'=>50.25,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
+      $this->isidata = array(array('add'=>'A','row'=>'0','txt'=>'','row_height'=>50.25,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
 					         array('add'=>'B','row'=>'0','txt'=>'','font'=>$tmp_font2),
 					         array('add'=>'C','row'=>'0','txt'=>'','font'=>$tmp_font2),
 							 array('add'=>'D','row'=>'0','txt'=>'','font'=>$tmp_font2),
@@ -72,8 +72,8 @@ class vw_ctkbap extends vw_excel_basic
 							 );	
       $this->bdr = array(array('add'=>'A','row'=>14,'wbrdawl'=>'A','wbrdakh'=>'J','wbrdjml'=>0,'wborders'=>$tmp_borders));	
       
-      $this->rw_ujian = array(array('add'=>'A','row'=>0,'txt'=>'','row_height'=>20,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2,'row_break'=>true,'jns_break'=>PHPExcel_Worksheet::BREAK_ROW),
-	                          array('add'=>'B','row'=>0,'txt'=>'','mawl'=>'B','makh'=>'J','mjml'=>0,'merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font3) );   	  
+      $this->rw_ujian = array(array('add'=>'A','row'=>0,'txt'=>'','row_height'=>20,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2,'row_break'=>true,'jns_break'=>BREAK_ROW),
+	                          array('add'=>'B','row'=>0,'txt'=>'','mawl'=>'B','makh'=>'J','mjml'=>0,'merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font3) );   	  
 	  
 	   $tmp_font1['bold'] = false;
        $this->footer = array(array('add'=>'A','row'=>0,'txt'=>'*) Metode Pembalajaran cukup diisikan nomor yang dipilih saja (boleh memilih lebih dari satu metode pembelajaran dalam satu pertemuan)','font'=>$tmp_font1),
@@ -138,7 +138,7 @@ class vw_ctkbap extends vw_excel_basic
 	   
 	   $this->tulis_data($this->footer,($start_row+$i+1));
 	  
-	   $this->setPageSetup(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE,PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4,true,false,86,12,13);
+	   $this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,86,12,13);
 	   
 	   
 	   $margin = 0.5 / 2.54;

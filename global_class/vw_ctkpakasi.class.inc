@@ -30,57 +30,57 @@ class vw_ctkpakasi extends vw_excel_basic
      $tmp_font3 =$tmp_font2;
 	 $tmp_font3['bold'] = true;	 
 	 
-	 $tmp_borders = $this->build_borders(PHPExcel_Style_Border::BORDER_MEDIUM,PHPExcel_Style_Border::BORDER_MEDIUM);
-	 $tmp_borders1 = $this->build_borders(PHPExcel_Style_Border::BORDER_THIN,PHPExcel_Style_Border::BORDER_MEDIUM);
-	 $tmp_borders2 = $this->build_borders(PHPExcel_Style_Border::BORDER_NONE,PHPExcel_Style_Border::BORDER_MEDIUM);
+	 $tmp_borders = $this->build_borders(BORDER_MEDIUM,BORDER_MEDIUM);
+	 $tmp_borders1 = $this->build_borders(BORDER_THIN,BORDER_MEDIUM);
+	 $tmp_borders2 = $this->build_borders(BORDER_NONE,BORDER_MEDIUM);
 	
 	 
 	 $this->jdlR=array(array('add'=>'A2','txt'=>'LAMPIRAN SURAT','font'=>$tmp_font),
 	                   array('add'=>'A4','txt'=>'Prodi Matematika','font'=>$tmp_font),
 					   array('add'=>'A5','txt'=>'Kelas Reguler','font'=>$tmp_font),
-					   array('add'=>'A','row'=>7,'txt'=>'NO.','merge'=>true,'mawl'=>'A','makh'=>'A','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-	                   array('add'=>'B','row'=>7,'txt'=>'NAMA DOSEN/ASISTEN','merge'=>true,'mawl'=>'B','makh'=>'B','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					   array('add'=>'C','row'=>7,'txt'=>'MATA KULIAH','merge'=>true,'mawl'=>'C','makh'=>'C','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					   array('add'=>'D','row'=>7,'txt'=>'SMT','merge'=>true,'mawl'=>'D','makh'=>'D','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'A','row'=>7,'txt'=>'NO.','merge'=>true,'mawl'=>'A','makh'=>'A','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+	                   array('add'=>'B','row'=>7,'txt'=>'NAMA DOSEN/ASISTEN','merge'=>true,'mawl'=>'B','makh'=>'B','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'C','row'=>7,'txt'=>'MATA KULIAH','merge'=>true,'mawl'=>'C','makh'=>'C','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'D','row'=>7,'txt'=>'SMT','merge'=>true,'mawl'=>'D','makh'=>'D','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
 					   
-					   array('add'=>'E','row'=>7,'txt'=>'NASKAH','merge'=>true,'mawl'=>'E','makh'=>'G','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					   array('add'=>'E','row'=>8,'txt'=>'JML NASKAH','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'E','wbrdakh'=>'G','wbrdjml'=>0,'wborders'=>$tmp_borders2),
-					   array('add'=>'G','row'=>8,'txt'=>'HONOR','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'E','row'=>7,'txt'=>'NASKAH','merge'=>true,'mawl'=>'E','makh'=>'G','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'E','row'=>8,'txt'=>'JML NASKAH','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'E','wbrdakh'=>'G','wbrdjml'=>0,'wborders'=>$tmp_borders2),
+					   array('add'=>'G','row'=>8,'txt'=>'HONOR','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
 					   
-					   array('add'=>'H','row'=>7,'txt'=>'PEMERIKSAAN','merge'=>true,'mawl'=>'H','makh'=>'J','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					   array('add'=>'H','row'=>8,'txt'=>'JML MHS','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'H','wbrdakh'=>'J','wbrdjml'=>0,'wborders'=>$tmp_borders2),
-					   array('add'=>'J','row'=>8,'txt'=>'HONOR','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					   array('add'=>'H','row'=>7,'txt'=>'PEMERIKSAAN','merge'=>true,'mawl'=>'H','makh'=>'J','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'H','row'=>8,'txt'=>'JML MHS','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'wbrdawl'=>'H','wbrdakh'=>'J','wbrdjml'=>0,'wborders'=>$tmp_borders2),
+					   array('add'=>'J','row'=>8,'txt'=>'HONOR','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
 					   
-					   array('add'=>'K','row'=>7,'txt'=>'JML UANG','merge'=>true,'mawl'=>'K','makh'=>'K','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					   array('add'=>'L','row'=>7,'txt'=>'TTD','merge'=>true,'mawl'=>'L','makh'=>'L','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
+					   array('add'=>'K','row'=>7,'txt'=>'JML UANG','merge'=>true,'mawl'=>'K','makh'=>'K','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					   array('add'=>'L','row'=>7,'txt'=>'TTD','merge'=>true,'mawl'=>'L','makh'=>'L','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
 					   );
 					   
-	$this->formatmtk=array(array('add'=>'C','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2,'shrinktofit'=>true),
-						   array('add'=>'D','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
+	$this->formatmtk=array(array('add'=>'C','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2,'shrinktofit'=>true),
+						   array('add'=>'D','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
 						   
-						   array('add'=>'E','row'=>0,'txt'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-						   array('add'=>'F','row'=>0,'txt'=>'x','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-						   array('add'=>'G','row'=>0,'txt'=>25000,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font2,'format'=>'#,##0'),
+						   array('add'=>'E','row'=>0,'txt'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
+						   array('add'=>'F','row'=>0,'txt'=>'x','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
+						   array('add'=>'G','row'=>0,'txt'=>25000,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_RIGHT,'font'=>$tmp_font2,'format'=>'#,##0'),
 						   						   
-						   array('add'=>'H','row'=>0,'txt'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-						   array('add'=>'I','row'=>0,'txt'=>'x','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-						   array('add'=>'J','row'=>0,'txt'=>2000,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font2,'format'=>'#,##0'),
+						   array('add'=>'H','row'=>0,'txt'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
+						   array('add'=>'I','row'=>0,'txt'=>'x','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
+						   array('add'=>'J','row'=>0,'txt'=>2000,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_RIGHT,'font'=>$tmp_font2,'format'=>'#,##0'),
 						   
-						   array('add'=>'K','row'=>0,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font2,'format'=>'#,##0')
+						   array('add'=>'K','row'=>0,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_RIGHT,'font'=>$tmp_font2,'format'=>'#,##0')
 						   
 						   );	
 
-     $this->formatnm=array(array('add'=>'A','row'=>0,'txt'=>'','merge'=>true,'mawl'=>'A','makh'=>'A','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2,'wbrdawl'=>'A','wbrdakh'=>'L','wbrdjml'=>1,'wborders'=>$tmp_borders1,'shrinktofit'=>true),
-						   array('add'=>'B','row'=>0,'txt'=>'','merge'=>true,'mawl'=>'B','makh'=>'B','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
+     $this->formatnm=array(array('add'=>'A','row'=>0,'txt'=>'','merge'=>true,'mawl'=>'A','makh'=>'A','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2,'wbrdawl'=>'A','wbrdakh'=>'L','wbrdjml'=>1,'wborders'=>$tmp_borders1,'shrinktofit'=>true),
+						   array('add'=>'B','row'=>0,'txt'=>'','merge'=>true,'mawl'=>'B','makh'=>'B','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
 						   
-						   array('add'=>'C','row'=>1,'txt'=>'Jumlah','merge'=>true,'mawl'=>'C','makh'=>'J','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font3),
-						   array('add'=>'K','row'=>1,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0'),
-						   array('add'=>'L','row'=>0,'txt'=>'','merge'=>true,'mawl'=>'L','makh'=>'L','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
+						   array('add'=>'C','row'=>1,'txt'=>'Jumlah','merge'=>true,'mawl'=>'C','makh'=>'J','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font3),
+						   array('add'=>'K','row'=>1,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0'),
+						   array('add'=>'L','row'=>0,'txt'=>'','merge'=>true,'mawl'=>'L','makh'=>'L','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
 						   						   
 						   );
 
- 	  $this->formattotal=array(array('add'=>'A','row'=>0,'txt'=>'TOTAL','merge'=>true,'mawl'=>'A','makh'=>'J','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font3,'wbrdawl'=>'A','wbrdakh'=>'L','wbrdjml'=>0,'wborders'=>$tmp_borders1),
-	                           array('add'=>'K','row'=>0,'txt'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0'));					   
+ 	  $this->formattotal=array(array('add'=>'A','row'=>0,'txt'=>'TOTAL','merge'=>true,'mawl'=>'A','makh'=>'J','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font3,'wbrdawl'=>'A','wbrdakh'=>'L','wbrdjml'=>0,'wborders'=>$tmp_borders1),
+	                           array('add'=>'K','row'=>0,'txt'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_RIGHT,'font'=>$tmp_font3,'format'=>'#,##0'));					   
 	  				   
 	  $this->jdlN= $this->jdlR;
 	  $this->jdlN[2]['txt']= 'Kelas Non Reguler'; 
@@ -189,7 +189,7 @@ class vw_ctkpakasi extends vw_excel_basic
 	      
 		     		 
 	  
-	  $this->setPageSetup(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE,PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4,true,false,100,7,8);
+	  $this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,100,7,8);
 	  $margin = 0.5 / 2.54;
 	  $this->setMargin($margin,$margin,$margin,$margin);
 	  
@@ -291,7 +291,7 @@ class vw_ctkpakasi extends vw_excel_basic
 	  }
 	  
 	  	  
-	  $this->setPageSetup(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE,PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4,true,false,100,7,8);
+	  $this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,100,7,8);
 	  $margin = 0.5 / 2.54;
 	  $this->setMargin($margin,$margin,$margin,$margin);
 	  

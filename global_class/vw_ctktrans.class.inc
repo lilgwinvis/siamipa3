@@ -22,11 +22,11 @@ class vw_ctktrans extends vw_excel_basic
      $tmp_font = $this->build_font(true,'Times New Roman',10);
      $tmp_font1 = $this->build_font(true,'Calibri',9);
 
-     $tmp_borders = $this->build_borders(PHPExcel_Style_Border::BORDER_MEDIUM,PHPExcel_Style_Border::BORDER_MEDIUM);
-     $tmp_borders1 = $this->build_borders(PHPExcel_Style_Border::BORDER_NONE,PHPExcel_Style_Border::BORDER_MEDIUM);
+     $tmp_borders = $this->build_borders(BORDER_MEDIUM,BORDER_MEDIUM);
+     $tmp_borders1 = $this->build_borders(BORDER_NONE,BORDER_MEDIUM);
 
      $this->jdl_=array(
-     	                 array('add'=>'A11','txt'=>'TRANSKRIP NILAI','merge'=>true,'madd'=>'A11:O11','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
+     	                 array('add'=>'A11','txt'=>'TRANSKRIP NILAI','merge'=>true,'madd'=>'A11:O11','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
 					     array('add'=>'A14','txt'=>'Nama','font'=>$tmp_font),
 					     array('add'=>'A15','txt'=>'Tempat/Tanggal Lahir','font'=>$tmp_font),
 					     array('add'=>'A16','txt'=>'NIM','font'=>$tmp_font),
@@ -42,20 +42,20 @@ class vw_ctktrans extends vw_excel_basic
 					     array('add'=>'L14','txt'=>'Matematika dan IPA','font'=>$tmp_font),
 					     array('add'=>'L15','txt'=>'Matematika','font'=>$tmp_font),
 					     array('add'=>'L16','txt'=>'S1','font'=>$tmp_font),
-					     array('add'=>'A','row'=>17,'txt'=>'Matakuliah','merge'=>true,'mawl'=>'A','makh'=>'C','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'D','row'=>17,'txt'=>'Kode','merge'=>true,'mawl'=>'D','makh'=>'D','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'E','row'=>17,'txt'=>'SKS','merge'=>true,'mawl'=>'E','makh'=>'E','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'F','row'=>17,'txt'=>'NILAI','merge'=>true,'mawl'=>'F','makh'=>'H','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'F18','txt'=>'HM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'G18','txt'=>'AM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'H18','txt'=>'NM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'J','row'=>17,'txt'=>'Matakuliah','merge'=>true,'mawl'=>'J','makh'=>'K','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'L','row'=>17,'txt'=>'Kode','merge'=>true,'mawl'=>'L','makh'=>'L','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'M','row'=>17,'txt'=>'SKS','merge'=>true,'mawl'=>'M','makh'=>'M','mjml'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'N','row'=>17,'txt'=>'NILAI','merge'=>true,'mawl'=>'N','makh'=>'P','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'N18','txt'=>'HM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'O18','txt'=>'AM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'P18','txt'=>'NM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
+					     array('add'=>'A','row'=>17,'txt'=>'Matakuliah','merge'=>true,'mawl'=>'A','makh'=>'C','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'D','row'=>17,'txt'=>'Kode','merge'=>true,'mawl'=>'D','makh'=>'D','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'E','row'=>17,'txt'=>'SKS','merge'=>true,'mawl'=>'E','makh'=>'E','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'F','row'=>17,'txt'=>'NILAI','merge'=>true,'mawl'=>'F','makh'=>'H','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'F18','txt'=>'HM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'G18','txt'=>'AM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'H18','txt'=>'NM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'J','row'=>17,'txt'=>'Matakuliah','merge'=>true,'mawl'=>'J','makh'=>'K','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'L','row'=>17,'txt'=>'Kode','merge'=>true,'mawl'=>'L','makh'=>'L','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'M','row'=>17,'txt'=>'SKS','merge'=>true,'mawl'=>'M','makh'=>'M','mjml'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'N','row'=>17,'txt'=>'NILAI','merge'=>true,'mawl'=>'N','makh'=>'P','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'N18','txt'=>'HM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'O18','txt'=>'AM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'P18','txt'=>'NM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
 					   );
 
      $this->dt_mhs_ = array(
@@ -67,19 +67,19 @@ class vw_ctktrans extends vw_excel_basic
      $this->isitb_kiri=array(
      	                 array('add'=>'A','row'=>17,'txt'=>'','merge'=>true,'mawl'=>'A','makh'=>'C','mjml'=>0,'font'=>$tmp_font1,'borders'=>$tmp_borders),
 					     array('add'=>'D','row'=>17,'txt'=>'','font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'E','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'F','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'G','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'H','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)					     
+					     array('add'=>'E','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'F','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'G','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'H','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)					     
 					   );
      
      $this->isitb_kanan=array(
      	                 array('add'=>'J','row'=>17,'txt'=>'','merge'=>true,'mawl'=>'J','makh'=>'K','mjml'=>0,'font'=>$tmp_font1,'borders'=>$tmp_borders),
 					     array('add'=>'L','row'=>17,'txt'=>'','font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'M','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'N','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'O','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
-					     array('add'=>'P','row'=>17,'txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
+					     array('add'=>'M','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'N','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'O','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders),
+					     array('add'=>'P','row'=>17,'txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1,'borders'=>$tmp_borders)
 					   );
 
     $this->kotak_ipk=array(
@@ -218,7 +218,7 @@ class vw_ctktrans extends vw_excel_basic
 
             $this->tulis_data($this->kotak_ttd);
 
-      $this->setPageSetup(PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT,PHPExcel_Worksheet_PageSetup::PAPERSIZE_LEGAL,true,false,100,0,0,true);
+      $this->setPageSetup(ORIENTATION_PORTRAIT,PAPERSIZE_LEGAL,true,false,100,0,0,true);
 	  
 	  $margin = 0 / 2.54;
 	  $this->setMargin($margin,$margin,$margin,$margin);

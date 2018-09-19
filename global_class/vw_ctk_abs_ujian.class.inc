@@ -32,67 +32,67 @@ class vw_ctk_Abs_Ujian extends vw_excel_basic
 	   $tmp_font4 =$tmp_font2;
 	   $tmp_font4['size'] = 11;
 	   
-	   $tmp_borders = $this->build_borders(PHPExcel_Style_Border::BORDER_THIN,PHPExcel_Style_Border::BORDER_MEDIUM);
+	   $tmp_borders = $this->build_borders(BORDER_THIN,BORDER_MEDIUM);
 	   
-	   $this->jdl1=array(array('add'=>'A1','txt'=>'PROGRAM STUDI MATEMATIKA','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-	                     array('add'=>'A2','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'A3','txt'=>'UNIVERSITAS BALE BANDUNG','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font), 
+	   $this->jdl1=array(array('add'=>'A1','txt'=>'PROGRAM STUDI MATEMATIKA','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+	                     array('add'=>'A2','txt'=>'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'A3','txt'=>'UNIVERSITAS BALE BANDUNG','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font), 
                        
-					     array('add'=>'A6','txt'=>'','madd'=>'A6:H6','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font1),
+					     array('add'=>'A6','txt'=>'','madd'=>'A6:H6','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font1),
 					   
-					     array('add'=>'A8','txt'=>'MATA KULIAH','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'A9','txt'=>'DOSEN','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'A10','txt'=>'Semester / Tahun Akademik','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'A11','txt'=>'Kelas','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'A8','txt'=>'MATA KULIAH','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'A9','txt'=>'DOSEN','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'A10','txt'=>'Semester / Tahun Akademik','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'A11','txt'=>'Kelas','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
 					   
-					     array('add'=>'C8','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'C9','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'C10','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'C11','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),				   
+					     array('add'=>'C8','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'C9','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'C10','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'C11','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),				   
 					   
-					     array('add'=>'E8','txt'=>'PENGAWAS','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'E9','txt'=>'Hari/Tgl Ujian','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'E10','txt'=>'Jam Ujian','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'E11','txt'=>'Lama Ujian','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'E8','txt'=>'PENGAWAS','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'E9','txt'=>'Hari/Tgl Ujian','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'E10','txt'=>'Jam Ujian','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'E11','txt'=>'Lama Ujian','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
 					   
-					     array('add'=>'G8','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'G9','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'G10','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'G11','txt'=>':','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),	
+					     array('add'=>'G8','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'G9','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'G10','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'G11','txt'=>':','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),	
 
-                         array('add'=>'H8','txt'=>'.....................................','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'H9','txt'=>'........ / ..... - ...... - ........','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'H10','txt'=>'..... : .....  s/d  ..... : ..... ','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					     array('add'=>'H11','txt'=>'..... Jam ..... Menit','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),						 
+                         array('add'=>'H8','txt'=>'.....................................','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'H9','txt'=>'........ / ..... - ...... - ........','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'H10','txt'=>'..... : .....  s/d  ..... : ..... ','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					     array('add'=>'H11','txt'=>'..... Jam ..... Menit','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),						 
 					   
-					     array('add'=>'A','row'=>13,'txt'=>'NO','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font,'wbrdawl'=>'A','wbrdakh'=>'H','wbrdjml'=>0,'wborders'=>$tmp_borders),
-					     array('add'=>'B13','txt'=>'NIM','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'C13','txt'=>'NAMA','madd'=>'C13:D13','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
-					     array('add'=>'E13','txt'=>'TANDA TANGAN','madd'=>'E13:H13','merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'A','row'=>13,'txt'=>'NO','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font,'wbrdawl'=>'A','wbrdakh'=>'H','wbrdjml'=>0,'wborders'=>$tmp_borders),
+					     array('add'=>'B13','txt'=>'NIM','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'C13','txt'=>'NAMA','madd'=>'C13:D13','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
+					     array('add'=>'E13','txt'=>'TANDA TANGAN','madd'=>'E13:H13','merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font),
 					   );	
     
-	$this->jdlmtk = array(array('add'=>'D8','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font,'shrinktofit'=>true),
-					       array('add'=>'D9','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font,'shrinktofit'=>true),
-					       array('add'=>'D10','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font),
-					       array('add'=>'D11','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font));
+	$this->jdlmtk = array(array('add'=>'D8','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font,'shrinktofit'=>true),
+					       array('add'=>'D9','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font,'shrinktofit'=>true),
+					       array('add'=>'D10','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font),
+					       array('add'=>'D11','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font));
 	
-	$this->isidata = array(array('add'=>'A','row'=>'0','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font2),
-					       array('add'=>'B','row'=>'0','txt'=>'','v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
-					       array('add'=>'C','row'=>'0','txt'=>'','mawl'=>'C','makh'=>'D','mjml'=>0,'merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2));
+	$this->isidata = array(array('add'=>'A','row'=>'0','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font2),
+					       array('add'=>'B','row'=>'0','txt'=>'','v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
+					       array('add'=>'C','row'=>'0','txt'=>'','mawl'=>'C','makh'=>'D','mjml'=>0,'merge'=>true,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2));
 	
-	$this->ttd = array(array('add'=>'E','row'=>0,'txt'=>'','mawl'=>'E','makh'=>'F','mjml'=>1,'merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_TOP,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2),
-		               array('add'=>'G','row'=>0,'txt'=>'','mawl'=>'G','makh'=>'H','mjml'=>1,'merge'=>true,'v'=>PHPExcel_Style_Alignment::VERTICAL_TOP,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font2));
+	$this->ttd = array(array('add'=>'E','row'=>0,'txt'=>'','mawl'=>'E','makh'=>'F','mjml'=>1,'merge'=>true,'v'=>VERTICAL_TOP,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2),
+		               array('add'=>'G','row'=>0,'txt'=>'','mawl'=>'G','makh'=>'H','mjml'=>1,'merge'=>true,'v'=>VERTICAL_TOP,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font2));
 	
 	$this->bdr = array(array('add'=>'A','row'=>14,'wbrdawl'=>'A','wbrdakh'=>'H','wbrdjml'=>0,'wborders'=>$tmp_borders));
 	
-    $this->jdl2=array(array('txt'=>'Pengawas Ujian','add'=>"G",'row'=>0,'merge'=>true,'mawl'=>'G','makh'=>'H','mjml'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font3,'wbrdawl'=>'G','wbrdakh'=>'H','wbrdjml'=>4,'wborders'=>$tmp_borders),
-	                  array('txt'=>'( ......................... )','add'=>"G",'row'=>1,'merge'=>true,'mawl'=>'G','makh'=>'H','mjml'=>3,'v'=>PHPExcel_Style_Alignment::VERTICAL_BOTTOM,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_CENTER,'font'=>$tmp_font3),
+    $this->jdl2=array(array('txt'=>'Pengawas Ujian','add'=>"G",'row'=>0,'merge'=>true,'mawl'=>'G','makh'=>'H','mjml'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font3,'wbrdawl'=>'G','wbrdakh'=>'H','wbrdjml'=>4,'wborders'=>$tmp_borders),
+	                  array('txt'=>'( ......................... )','add'=>"G",'row'=>1,'merge'=>true,'mawl'=>'G','makh'=>'H','mjml'=>3,'v'=>VERTICAL_BOTTOM,'h'=>HORIZONTAL_CENTER,'font'=>$tmp_font3),
 					 				  
-					  array('txt'=>'Pemberitahuan :','add'=>"A",'row'=>0,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font4),
-	                  array('txt'=>'1. Jika nama anda tidak tercantum mohon segera lapor ke TU FMIPA','add'=>"A",'row'=>1,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font4),
-					  array('txt'=>'2. Mahasiswa yang tidak tercantum namanya tidak berhak mengikuti ujian','add'=>"A",'row'=>2,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font4),
-					  array('txt'=>'3. Sebelum ujian dimulai semua mahaasiswa harus memperlihatkan Kartu Ujian','add'=>"A",'row'=>3,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font4),
-					  array('txt'=>'4. Serahkan kembali daftar hadir ini ke TU FMIPA','add'=>"A",'row'=>4,'v'=>PHPExcel_Style_Alignment::VERTICAL_CENTER,'h'=>PHPExcel_Style_Alignment::HORIZONTAL_LEFT,'font'=>$tmp_font4),
+					  array('txt'=>'Pemberitahuan :','add'=>"A",'row'=>0,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font4),
+	                  array('txt'=>'1. Jika nama anda tidak tercantum mohon segera lapor ke TU FMIPA','add'=>"A",'row'=>1,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font4),
+					  array('txt'=>'2. Mahasiswa yang tidak tercantum namanya tidak berhak mengikuti ujian','add'=>"A",'row'=>2,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font4),
+					  array('txt'=>'3. Sebelum ujian dimulai semua mahaasiswa harus memperlihatkan Kartu Ujian','add'=>"A",'row'=>3,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font4),
+					  array('txt'=>'4. Serahkan kembali daftar hadir ini ke TU FMIPA','add'=>"A",'row'=>4,'v'=>VERTICAL_CENTER,'h'=>HORIZONTAL_LEFT,'font'=>$tmp_font4),
 					                    
 	                 );					   
     						
@@ -158,7 +158,7 @@ class vw_ctk_Abs_Ujian extends vw_excel_basic
 		 $this->tulis_data($this->bdr);			
 		 $this->tulis_data($this->jdl2,$start_row+($i+2));		
          
-		 	$this->setPageSetup(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE,PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4,true,true);
+		 	$this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,true);
 			$margin = 0.5 / 2.54;
 			$this->setMargin($margin,$margin,$margin,$margin);
 			

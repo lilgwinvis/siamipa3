@@ -161,7 +161,7 @@ class vw_ctkdhmd extends vw_excel_basic
 		 $this->tulis_data($this->bdr);			
 		 $this->tulis_data($this->jdl2,$start_row+($i+2));		
          
-		 	$this->setPageSetup(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE,PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4,true,true);
+		 	$this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,true);
 			$margin = 0.5 / 2.54;
 			$this->setMargin($margin,$margin,$margin,$margin);
 			
