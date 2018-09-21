@@ -1,30 +1,50 @@
 <?php
 
 require_once 'shared.php';
-//require '../vendor/autoload.php';
+require '../vendor/autoload.php';
 
-//use PhpOffice\PhpSpreadsheet\Spreadsheet;
-//use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
-define('BORDER_MEDIUM', PHPExcel_Style_Border::BORDER_MEDIUM);
-define('BORDER_THIN', PHPExcel_Style_Border::BORDER_THIN);
-define('BORDER_NONE', PHPExcel_Style_Border::BORDER_NONE);
+/*define('BORDER_MEDIUM',PHPExcel_Style_Border::BORDER_MEDIUM);
+define('BORDER_THIN'  ,PHPExcel_Style_Border::BORDER_THIN);
+define('BORDER_NONE'  ,PHPExcel_Style_Border::BORDER_NONE);
 
-define('HORIZONTAL_LEFT', PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+define('HORIZONTAL_LEFT'  , PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
 define('HORIZONTAL_CENTER', PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-define('HORIZONTAL_RIGHT', PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+define('HORIZONTAL_RIGHT' , PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
 
 
 define('VERTICAL_CENTER', PHPExcel_Style_Alignment::VERTICAL_CENTER);
 define('VERTICAL_BOTTOM', PHPExcel_Style_Alignment::VERTICAL_BOTTOM);
-define('VERTICAL_TOP', PHPExcel_Style_Alignment::VERTICAL_TOP);
+define('VERTICAL_TOP'   , PHPExcel_Style_Alignment::VERTICAL_TOP);
 
-define('ORIENTATION_PORTRAIT', PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+define('ORIENTATION_PORTRAIT' , PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
 define('ORIENTATION_LANDSCAPE', PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
-define('PAPERSIZE_LEGAL', PHPExcel_Worksheet_PageSetup::PAPERSIZE_LEGAL);
-define('PAPERSIZE_A4', PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+define('PAPERSIZE_LEGAL'      , PHPExcel_Worksheet_PageSetup::PAPERSIZE_LEGAL);
+define('PAPERSIZE_A4'         , PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
 
-define('BREAK_ROW', PHPExcel_Worksheet::BREAK_ROW);
+define('BREAK_ROW'            , PHPExcel_Worksheet::BREAK_ROW);*/
+
+define('BORDER_MEDIUM',\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM);
+define('BORDER_THIN'  ,\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+define('BORDER_NONE'  ,\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_NONE);
+
+define('HORIZONTAL_LEFT'  , \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+define('HORIZONTAL_CENTER', \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+define('HORIZONTAL_RIGHT' , \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+
+define('VERTICAL_CENTER', \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+define('VERTICAL_BOTTOM', \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_BOTTOM);
+define('VERTICAL_TOP'   , \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_TOP);
+
+define('ORIENTATION_PORTRAIT' , \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT);
+define('ORIENTATION_LANDSCAPE', \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
+define('PAPERSIZE_LEGAL'      , \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_LEGAL);
+define('PAPERSIZE_A4'         , \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
+
+define('BREAK_ROW'            , \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::BREAK_ROW);
 
 
 class vw_excel_basic
@@ -33,11 +53,8 @@ class vw_excel_basic
   
   function __construct()
   {
-    $this->objPHPExcel = new PHPExcel();
-    //$this->objPHPExcel = new Spreadsheet();
-
-    
-
+    //$this->objPHPExcel = new PHPExcel();
+    $this->objPHPExcel = new Spreadsheet();
   }
   
   function createSheet()
@@ -148,8 +165,8 @@ class vw_excel_basic
    
    function save($nm_file)
    {
-      //$objWriter = new Xlsx($this->objPHPExcel);
-      $objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel5');
+      $objWriter = new Xls($this->objPHPExcel);
+      //$objWriter = PHPExcel_IOFactory::createWriter($this->objPHPExcel, 'Excel5');
       $objWriter->save($nm_file);   
    }
   
@@ -365,12 +382,19 @@ class vw_excel_basic
    {
    
       $tmp_borders = array(
-							'inside'     => array(
+							/*'inside'     => array(
 								'style' => $inside
 							),
 							'outline'     => array(
 								'style' => $outline
-							)
+							)*/
+
+							'inside' => array(
+                                   'borderStyle' => $inside,
+                              ),
+                            'outline' => array(
+                                   'borderStyle' => $outline,
+                              ),
 						);
 	  return $tmp_borders;					
    

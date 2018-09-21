@@ -489,12 +489,13 @@ class vw_ctkhnr extends vw_excel_basic
 	  $this->setColumnWidth($this->col_width_);
 	  
 	  $this->tulis_data($this->jdlLB);
-	  $this->tulis_data($this->jdl2per);
-	  
-
+	  //$this->tulis_data($this->jdl4per);
+	 
     if(!empty($dtLB))
         {
-		  $start_row=12;
+		  //$start_row=12;
+		  $start_row=14;
+
 		  $sub_start_row=$start_row;
 		  $i=0;
 		  
@@ -507,19 +508,16 @@ class vw_ctkhnr extends vw_excel_basic
 		  $jml_break = 0;
 		  $sub_total = array();
 		  
-		  $this->footerLB1[0]['makh']='N';
-		  $this->footerLB1[1]['add']='O';
-			
-		  $this->footerLB2[0]['makh']='N';
-		  $this->footerLB2[1]['add']='O';
-		  
 		  foreach($dtLB as $row)
 		  {
 		    
-			 $awl = $start_row+($i*3)+$jml_break;			
-			 $akh = $awl+2;
-		   
-  		   	        $idx_break = (($i>0) and (($i+1)<=9)) ? 8 : 9 ;  
+			
+			  //$awl = $start_row+($i*3)+$jml_break;			
+			  $awl = $start_row+$i+$jml_break;			
+			  //$akh = $awl+2;
+			  $akh = $awl;
+		   		    
+					$idx_break = (($i>0) and (($i+1)<=9)) ? 20 : 21 ;  
 					
 					if((($i+1) % $idx_break)==0)
 						{				     		 
@@ -539,26 +537,28 @@ class vw_ctkhnr extends vw_excel_basic
 			   if($jml_sm>0)
 			   {
 			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
 			   }
 			   
-			   $this->isi_data($awl,$row,true,true,$dthnrLB,$dthnrDTY,false,$i); 
+			   $this->isi_data($awl,$row,true,true,$dthnrLB,$dthnrDTY,false,$i);
+			   
 			   $row_smawl=$awl;			   
 			   $nm_sm=$row['nama'];
 			   $jml_sm=0;
+               
+               if($isbreak){
+			    $row_smawl=$akh+2;			   
+			   }
 			   
-			    if($isbreak){
-			       $row_smawl=$akh+2;			   
-			    }
-			   
-                $isbreak=false;
-			   
+               $isbreak=false;			   
 			   
             }else{
-			       $this->isi_data($awl,$row,true,true,$dthnrLB,$dthnrDTY,false,$i); 
-				   $row_smakh=$akh;	
+			      $this->isi_data($awl,$row,true,true,$dthnrLB,$dthnrDTY,false,$i);
+				  $row_smakh=$akh;	
 				  
 				  if($isbreak){
 				      $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+				      $this->mergeCells("K". $row_smawl.":K".$row_smakh);
 					  $row_smawl=$row_smakh+2;
 					  $jml_sm=0;
 				  }
@@ -566,41 +566,53 @@ class vw_ctkhnr extends vw_excel_basic
 				    $jml_sm=$jml_sm+1;				   
 				  } 			   
 				   $isbreak=false;
-				 }  
-            
+				 }
+			      
+				 
+			
 			
 			$this->tulis_data($this->tblformat,$awl);
-			$this->tulis_data($this->tblformat2per,$awl);
+			//$this->tulis_data($this->tblformat4per,$awl);
 			$i=$i+1;
 		  } 		  
-			$awl = $start_row+($i*3)+$jml_break;
-            $akh = $awl+2;	
-			
-		    $tmp_add='';
+			//$awl = $start_row+($i*3)+$jml_break;
+            //$akh = $awl+2;
+			$awl = $start_row+$i+$jml_break;
+            $akh = $awl;
+
+            if($jml_sm>0)
+			   {
+			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
+			   }
+            
+			$tmp_add='';
 			foreach($sub_total as $idx)
 			{
 			  $tmp_add = $tmp_add .$this->footerLB2[1]['add'].$idx.'+';			
 			}
-			     
-			if($sub_start_row!=$awl){	 
-				 $this->footerLB1[1]['txt']= "=sum(".$this->footerLB1[1]['add'].$sub_start_row.":".$this->footerLB1[1]['add'].($awl-1).")"; 
-            	 $this->tulis_data($this->footerLB1,$awl);
-				 $tmp_add = $tmp_add .$this->footerLB2[1]['add'].$awl;
-			     $awl=$awl+1;
+						
+			if($sub_start_row!=$awl)
+            {			
+			  $this->footerLB1[1]['txt']= "=sum(".$this->footerLB1[1]['add'].$sub_start_row.":".$this->footerLB1[1]['add'].($awl-1).")";            
+              $this->tulis_data($this->footerLB1,$awl);
+			  $tmp_add = $tmp_add .$this->footerLB2[1]['add'].$awl;
+			  $awl=$awl+1;
 			}
-			$this->footerLB2[1]['txt']= '='.rtrim($tmp_add,'+');
-          		    
-			$this->tulis_data($this->footerLB2,$awl);
-			
+						
+			$this->footerLB2[1]['txt']= '='.rtrim($tmp_add,'+');          
+		    $this->tulis_data($this->footerLB2,$awl);
+		  
 		}
 
      $last_row=$awl;
 	 
-	    $this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,100,10,11);
+	 $this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,100,10,11);
 	  
-	    $margin = 0.5 / 2.54;
-	    $this->setMargin($margin,$margin,$margin,$margin);
-		$this->setFooter($this->pagefooter);
+	 $margin = 0.5 / 2.54;
+	 $this->setMargin($margin,$margin,$margin,$margin);
+	 
+	 $this->setFooter($this->pagefooter);
 	 
 	 $this->createSheet(); 
 	 $this->setActiveSheetIndex(1);
@@ -609,12 +621,13 @@ class vw_ctkhnr extends vw_excel_basic
 	 $this->setColumnWidth($this->col_width_);
 	  
 	  $this->tulis_data($this->jdlDTY);
-	  $this->tulis_data($this->jdl2per);
-	  	 
-   
+	  //$this->tulis_data($this->jdl4per);
+	  
       if(!empty($dtDTY))
         {
-		  $start_row=12;
+		  //$start_row=12;
+		  $start_row=14;
+
 		  $i=0;
 		  
 		  $nm_sm="";
@@ -624,50 +637,54 @@ class vw_ctkhnr extends vw_excel_basic
 		  
 		  foreach($dtDTY as $row)
 		  {
-		   
-			$awl = $start_row+($i*3);
-			$akh = $start_row+($i*3)+2;
-		   
-  		   
+		    
+			//$awl = $start_row+($i*3);
+			//$akh = $start_row+($i*3)+2;
+		    $awl = $start_row+$i;
+			$akh = $start_row+$i;
+  		    
 			
 			if($nm_sm!=$row['nama'])
 			{
 			   if($jml_sm>0)
 			   {
 			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
 			   }
 			   
-			   $this->isi_data($awl,$row,true,false,$dthnrLB,$dthnrDTY,false,$i); 
+			   
+               $this->isi_data($awl,$row,true,false,$dthnrLB,$dthnrDTY,false,$i);	   
 			   $row_smawl=$awl;			   
 			   $nm_sm=$row['nama'];
 			   $jml_sm=0;
             }else{
-			       $this->isi_data($awl,$row,false,false,$dthnrLB,$dthnrDTY,false,$i); 
+			       $tmp_row[]=array('data'=>"",'addawl'=>$awl,'addakh'=>$akh);
+				   $this->isi_data($awl,$row,false,false,$dthnrLB,$dthnrDTY,true,$i);
 				   $row_smakh=$akh;				   
 				   $jml_sm=$jml_sm+1;
 				 } 
-            
-			
+            			
 			$this->tulis_data($this->tblformat,$awl);
-			$this->tulis_data($this->tblformat2per,$awl);
+			//$this->tulis_data($this->tblformat4per,$awl);
 			$i=$i+1;
 		  } 		  
-			$awl = $start_row+($i*3);
-            $akh = $start_row+($i*3)+2;
+			//$awl = $start_row+($i*3);
+            //$akh = $start_row+($i*3)+2;
+		    $awl = $start_row+$i;
+            $akh = $start_row+$i;
+
+            if($jml_sm>0)
+			   {
+			     $this->mergeCells("B". $row_smawl.":B".$row_smakh);
+			     $this->mergeCells("K". $row_smawl.":K".$row_smakh);
+			   }
 			
-		    $this->footerDTY[0]['makh']='N';
-			$this->footerDTY[1]['add']='O';
-			$this->footerDTY[2]['makh']='N';
-			$this->footerDTY[3]['add']='O';
-			$this->footerDTY[4]['makh']='N';
-			$this->footerDTY[5]['add']='O';
-			
-			$this->footerDTY[1]['txt']="=sum(".$this->footerDTY[1]['add'].$start_row.":".$this->footerDTY[1]['add'].($awl-1).")";
+		    $this->footerDTY[1]['txt']="=sum(".$this->footerDTY[1]['add'].$start_row.":".$this->footerDTY[1]['add'].($awl-1).")";
 		    $this->footerDTY[3]['txt']="=sum(".$this->footerDTY[3]['add'].$start_row.":".$this->footerDTY[3]['add'].($awl-1).")";
             $this->footerDTY[5]['txt']="=sum(".$this->footerDTY[5]['add'].$start_row.":".$this->footerDTY[5]['add'].($awl-1).")+'HD LB'!".$this->footerDTY[5]['add'].$last_row;
-			$this->tulis_data($this->footerDTY,$awl);
-
-            $this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,100,10,11);
+			$this->tulis_data($this->footerDTY,$awl); 
+			
+			$this->setPageSetup(ORIENTATION_LANDSCAPE,PAPERSIZE_A4,true,false,100,1,11);
 	  
 	        $margin = 0.5 / 2.54;
 	        $this->setMargin($margin,$margin,$margin,$margin);
