@@ -5,6 +5,7 @@ require '../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
 /*define('BORDER_MEDIUM',PHPExcel_Style_Border::BORDER_MEDIUM);
 define('BORDER_THIN'  ,PHPExcel_Style_Border::BORDER_THIN);
@@ -80,9 +81,12 @@ class vw_excel_basic
 	 }
    }
    
-   function setRowHeight($row,$row_height)
+   function setRowHeight($col_height)
    {
-    $this->objPHPExcel->getActiveSheet()->getRowDimension($row)->setRowHeight($row_height);
+   	 foreach($col_height as $row=>$height)
+	 {
+      $this->objPHPExcel->getActiveSheet()->getRowDimension($row)->setRowHeight($height);
+     } 
    }
    
    function setBreak($add,$jns_break)
@@ -402,7 +406,7 @@ class vw_excel_basic
    
    function insert_image($position,$x,$y,$width,$image)
    {
-      $objDrawing = new PHPExcel_Worksheet_Drawing(); 
+      $objDrawing = new Drawing(); 
 	  $objDrawing->setPath($image);
 	  $objDrawing->setWidth($width);
 	  $objDrawing->setOffsetX($x);

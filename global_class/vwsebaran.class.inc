@@ -422,191 +422,22 @@ class vwsebaran
 	}
 	
 	function ctk_label($data)
-	{
-	  $objPHPExcel = new PHPExcel();
-	  $objPHPExcel->setActiveSheetIndex(0);
+	{  
 	  
 	  $mk=$data['kdkmk']." - ".$data['nakmk'];
 	  $ds=$data['kdds']." - ".$data['nads'];
-	  
-	   $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(27.86);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(1.57);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(2.14);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(1.43);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(8.43);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(8.43);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(1.14);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(4.29);
-	   $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(8.43);
-       $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(8.43);
-	   
-	   $objPHPExcel->getActiveSheet()->getRowDimension(14)->setRowHeight(6.00);
-	   $objPHPExcel->getActiveSheet()->getRowDimension(16)->setRowHeight(6.00);
-	   $objPHPExcel->getActiveSheet()->getRowDimension(18)->setRowHeight(6.00);
-	   $objPHPExcel->getActiveSheet()->getRowDimension(20)->setRowHeight(6.00);
-	   
-       
-	  $objPHPExcel->getActiveSheet()->setCellValue('A1', 'PROGRAM STUDI MATEMATIKA');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A2', 'FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A3', 'UNIVERSITAS BALE BANDUNG');
-	  $objPHPExcel->getActiveSheet()->getStyle('A1:A3')->applyFromArray(
-					array(
-						'font'    => array(
-							'bold'      => true,
-							'name'      => 'Times New Roman',
-							'size'      => 12
-						)
-					)
-			);
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('A6', 'BERKAS UJIAN');
-	  
-	    
-	  $objPHPExcel->getActiveSheet()->mergeCells('A6:J6');
-	  $objPHPExcel->getActiveSheet()->getStyle('A6:J6')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
-	  $objPHPExcel->getActiveSheet()->getStyle('A6:J6')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER); 		
-	  
-	  $objPHPExcel->getActiveSheet()->getStyle('A6:J6')->applyFromArray(
-					array(
-						'font'    => array(
-							'bold'      => true,
-							'name'      => 'Times New Roman',
-							'size'      => 16
-						)
-					)
-			);
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('A8', 'Ujian');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A9', 'Matakuliah');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A10', 'Dosen');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A11', 'Semester/Tahun Akademik');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A12', 'Kelas');
-	  $objPHPExcel->getActiveSheet()->setCellValue('A13', 'Isi Amplop');
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('B8', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('B9', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('B10', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('B11', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('B12', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('B13', ':');
-	  
+	  	  
 	   $vbaca_krs = new dt_krs;
 	   $thnsms = $vbaca_krs->TA();
 	   $tmp = str_split($thnsms, 4);	  
 	   $thn=$tmp[0];
 	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('C8', 'UTS / UAS');
-	  $objPHPExcel->getActiveSheet()->setCellValue('C9', $mk);
-	  $objPHPExcel->getActiveSheet()->setCellValue('C10', $ds);
-	  $objPHPExcel->getActiveSheet()->setCellValue('C11', $data['sem'].'/'.$thn.'-'.($thn+1));
-	  $objPHPExcel->getActiveSheet()->setCellValue('C12', $data['kls']);
-	  
-	  $objPHPExcel->getActiveSheet()->getStyle('C15')->applyFromArray(
-					array(
-						
-						'borders' => array(
-							
-							'outline'     => array(
-								'style' => PHPExcel_Style_Border::BORDER_MEDIUM
-							)
-						)
-					)
-			);
-			
-	  $objPHPExcel->getActiveSheet()->getStyle('C17')->applyFromArray(
-					array(
-						
-						'borders' => array(
-							
-							'outline'     => array(
-								'style' => PHPExcel_Style_Border::BORDER_MEDIUM
-							)
-						)
-					)
-			);
+	  $vwctklabel = new vw_ctk_label;	  
+	  $vwctklabel->ctk_label($mk,$ds, $data['sem'],$thn,$data['kls']);
 
-      $objPHPExcel->getActiveSheet()->getStyle('C19')->applyFromArray(
-					array(
-						
-						'borders' => array(
-							
-							'outline'     => array(
-								'style' => PHPExcel_Style_Border::BORDER_MEDIUM
-							)
-						)
-					)
-			);
-
-     $objPHPExcel->getActiveSheet()->getStyle('C21')->applyFromArray(
-					array(
-						
-						'borders' => array(
-							
-							'outline'     => array(
-								'style' => PHPExcel_Style_Border::BORDER_MEDIUM
-							)
-						)
-					)
-			);			
-	  
-	  
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('E15', 'Soal Ujian');
-	  $objPHPExcel->getActiveSheet()->setCellValue('E17', 'Lembar Jawaban');
-	  $objPHPExcel->getActiveSheet()->setCellValue('E19', 'Berita Acara');
-	  $objPHPExcel->getActiveSheet()->setCellValue('E21', 'Daftar Hadir');
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('G15', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('G17', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('G19', ':');
-	  $objPHPExcel->getActiveSheet()->setCellValue('G21', ':');
-	  
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('H15', '...');
-	  $objPHPExcel->getActiveSheet()->setCellValue('H17', '...');
-	  $objPHPExcel->getActiveSheet()->setCellValue('H19', '3');
-	  $objPHPExcel->getActiveSheet()->setCellValue('H21', '3');
-	  
-	  $objPHPExcel->getActiveSheet()->getStyle('H15:H21')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); 
-	  $objPHPExcel->getActiveSheet()->getStyle('H15:H21')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER); 		
-	  
-	  
-	  $objPHPExcel->getActiveSheet()->setCellValue('I15', 'Lembar');
-	  $objPHPExcel->getActiveSheet()->setCellValue('I17', 'Lembar');
-	  $objPHPExcel->getActiveSheet()->setCellValue('I19', 'Lembar');
-	  $objPHPExcel->getActiveSheet()->setCellValue('I21', 'Lembar');
-	  
-	  
-	  $objPHPExcel->getActiveSheet()->getStyle('A8:I27')->applyFromArray(
-					array(
-						'font'    => array(
-							'bold'      => true,
-							'name'      => 'Times New Roman',
-							'size'      => 12
-						)
-					)
-			);
-	  
-	  $objPHPExcel->getActiveSheet()->getStyle('A1:J23')->applyFromArray(
-					array(
-						
-						'borders' => array(
-							
-							'outline'     => array(
-								'style' => PHPExcel_Style_Border::BORDER_MEDIUM
-							)
-						)
-					)
-			);
-	  
-	  
 	  $tmp="../Admin/cetak/absen/Label ".$mk." ".$ds.".xls";
-	  
-	  $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-      $objWriter->save($tmp);
-	  
-	 
-	  
+	  $vwctklabel->save($tmp);
+	  	  
 	  return $tmp;
 	}
 

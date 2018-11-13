@@ -1,5 +1,7 @@
 <?php
   require_once 'shared.php';
+  require '../vendor/autoload.php';
+  use Dompdf\Dompdf;
   
   class vwtrans
   {
@@ -368,13 +370,19 @@
 			'<br>'.$tbl3->display().
 			'<br>'.'<font face="Calibri" size="9pt">Dicetak dari Sistem Informasi Akademik FMIPA UNIBBA pada tanggal '.date("d-m-Y H:i:s").'</font>'.
             '</body>'.
-			'</html>';          
+			'</html>';
+
+			
 		  
 		  $tmp="../Admin/cetak/transkrip/Transkrip Nilai - ".$vnim.".pdf";
           
-		  $dompdf = new DOMPDF();
-          $dompdf->load_html($html);
-          $dompdf->set_paper('a4', 'portrait');
+		  //$dompdf = new DOMPDF();
+          //$dompdf->load_html($html);
+          
+          $dompdf = new Dompdf();
+          $dompdf->loadHtml($html);
+
+          $dompdf->setPaper('a4', 'portrait');
 		  $dompdf->render();
           $output = $dompdf->output();
           file_put_contents($tmp, $output);
