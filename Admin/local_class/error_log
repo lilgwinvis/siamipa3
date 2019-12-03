@@ -1,0 +1,20 @@
+[01-Feb-2019 00:00:01 Asia/Jakarta] PHP Warning:  session_start(): Cannot send session cookie - headers already sent in /home/fmipaun/public_html/sia/Admin/local_class/shared.php on line 3
+[01-Feb-2019 00:00:01 Asia/Jakarta] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent in /home/fmipaun/public_html/sia/Admin/local_class/shared.php on line 3
+[01-Aug-2019 05:00:03 Asia/Jakarta] PHP Warning:  session_start(): Cannot send session cookie - headers already sent in /home/fmipaun/public_html/sia/Admin/local_class/shared.php on line 3
+[01-Aug-2019 05:00:03 Asia/Jakarta] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent in /home/fmipaun/public_html/sia/Admin/local_class/shared.php on line 3
+[01-Aug-2019 05:00:03 Asia/Jakarta] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '20182-F1A160001-MAT368' for key 'PRIMARY'' in /home/fmipaun/public_html/sia/db/db.inc:113
+Stack trace:
+#0 /home/fmipaun/public_html/sia/db/db.inc(113): PDO->query('INSERT INTO trn...')
+#1 /home/fmipaun/public_html/sia/db/default_table.class.inc(277): DbConnect->query('INSERT INTO trn...')
+#2 /home/fmipaun/public_html/sia/global_class/dt_krs.class.inc(676): Default_Table->export_record('trnlm', 'thsmstrnlm,nimh...', 'thsmskrs,nimhsk...', 'thsmskrs=20182')
+#3 /home/fmipaun/public_html/sia/Admin/local_class/cron.php(15): dt_krs->export_record('trnlm', 'thsmstrnlm,nimh...', 'thsmskrs,nimhsk...', 'thsmskrs=20182')
+#4 {main}
+  thrown in /home/fmipaun/public_html/sia/db/db.inc on line 113
+[20-Aug-2019 21:36:51 Asia/Jakarta] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '20182-1821232-UBB104' for key 'PRIMARY'' in /home/fmipaun/public_html/sia/db/db.inc:113
+Stack trace:
+#0 /home/fmipaun/public_html/sia/db/db.inc(113): PDO->query('INSERT INTO trn...')
+#1 /home/fmipaun/public_html/sia/db/default_table.class.inc(277): DbConnect->query('INSERT INTO trn...')
+#2 /home/fmipaun/public_html/sia/global_class/dt_krs.class.inc(676): Default_Table->export_record('trnlm', 'thsmstrnlm,nimh...', 'thsmskrs,nimhsk...', 'thsmskrs=20182')
+#3 /home/fmipaun/public_html/sia/Admin/local_class/mankrs.php(17): dt_krs->export_record('trnlm', 'thsmstrnlm,nimh...', 'thsmskrs,nimhsk...', 'thsmskrs=20182')
+#4 {main}
+  thrown in /home/fmipaun/public_html/sia/db/db.inc on line 113

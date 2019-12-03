@@ -108,4 +108,16 @@
     'italic' => DOMPDF_FONT_DIR . 'DejaVuSerifCondensed-Italic',
     'normal' => DOMPDF_FONT_DIR . 'DejaVuSerifCondensed',
   ),
+  'give you glory' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . 'f3e9cf17e356116bf84868b48a4fe23f',
+  ),
+  'love ya like a sister' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . '2328b2ffd55ffbee320919432cfdd18e',
+  ),
+  'wallpoet' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . 'b104354f66ead576679600d46ed1a27d',
+  ),
 ) ?>
